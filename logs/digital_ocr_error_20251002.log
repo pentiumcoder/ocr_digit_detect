@@ -1,0 +1,161 @@
+2025-10-02 09:23:08 - digital_ocr - ERROR - [logger.py:69] - Training failed: Invalid CUDA 'device=0' requested. Use 'device=cpu' or pass valid CUDA device(s) if available, i.e. 'device=0' or 'device=0,1,2,3' for Multi-GPU.
+
+torch.cuda.is_available(): False
+torch.cuda.device_count(): 0
+os.environ['CUDA_VISIBLE_DEVICES']: None
+See https://pytorch.org/get-started/locally/ for up-to-date torch install instructions if no CUDA devices are seen by torch.
+Traceback (most recent call last):
+  File "D:\OCR\trainer.py", line 290, in train
+    results = model.train(**train_args)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\OCR\.venv\Lib\site-packages\ultralytics\engine\model.py", line 795, in train
+    self.trainer = (trainer or self._smart_load("trainer"))(overrides=args, _callbacks=self.callbacks)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\OCR\.venv\Lib\site-packages\ultralytics\models\yolo\detect\train.py", line 65, in __init__
+    super().__init__(cfg, overrides, _callbacks)
+  File "D:\OCR\.venv\Lib\site-packages\ultralytics\engine\trainer.py", line 126, in __init__
+    self.device = select_device(self.args.device)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\OCR\.venv\Lib\site-packages\ultralytics\utils\torch_utils.py", line 199, in select_device
+    raise ValueError(
+ValueError: Invalid CUDA 'device=0' requested. Use 'device=cpu' or pass valid CUDA device(s) if available, i.e. 'device=0' or 'device=0,1,2,3' for Multi-GPU.
+
+torch.cuda.is_available(): False
+torch.cuda.device_count(): 0
+os.environ['CUDA_VISIBLE_DEVICES']: None
+See https://pytorch.org/get-started/locally/ for up-to-date torch install instructions if no CUDA devices are seen by torch.
+
+2025-10-02 09:23:08 - digital_ocr - CRITICAL - [logger.py:72] - Training failed: Invalid CUDA 'device=0' requested. Use 'device=cpu' or pass valid CUDA device(s) if available, i.e. 'device=0' or 'device=0,1,2,3' for Multi-GPU.
+
+torch.cuda.is_available(): False
+torch.cuda.device_count(): 0
+os.environ['CUDA_VISIBLE_DEVICES']: None
+See https://pytorch.org/get-started/locally/ for up-to-date torch install instructions if no CUDA devices are seen by torch.
+Traceback (most recent call last):
+  File "D:\OCR\main.py", line 172, in run_training
+    results = trainer.train(
+              ^^^^^^^^^^^^^^
+  File "D:\OCR\trainer.py", line 290, in train
+    results = model.train(**train_args)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\OCR\.venv\Lib\site-packages\ultralytics\engine\model.py", line 795, in train
+    self.trainer = (trainer or self._smart_load("trainer"))(overrides=args, _callbacks=self.callbacks)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\OCR\.venv\Lib\site-packages\ultralytics\models\yolo\detect\train.py", line 65, in __init__
+    super().__init__(cfg, overrides, _callbacks)
+  File "D:\OCR\.venv\Lib\site-packages\ultralytics\engine\trainer.py", line 126, in __init__
+    self.device = select_device(self.args.device)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\OCR\.venv\Lib\site-packages\ultralytics\utils\torch_utils.py", line 199, in select_device
+    raise ValueError(
+ValueError: Invalid CUDA 'device=0' requested. Use 'device=cpu' or pass valid CUDA device(s) if available, i.e. 'device=0' or 'device=0,1,2,3' for Multi-GPU.
+
+torch.cuda.is_available(): False
+torch.cuda.device_count(): 0
+os.environ['CUDA_VISIBLE_DEVICES']: None
+See https://pytorch.org/get-started/locally/ for up-to-date torch install instructions if no CUDA devices are seen by torch.
+
+2025-10-02 09:37:24 - digital_ocr - ERROR - [logger.py:69] - Training failed: Dataset 'data/data.yaml' error  data/data.yaml 'train:' key missing .
+'train' and 'val' are required in all data YAMLs.
+Traceback (most recent call last):
+  File "D:\OCR\.venv\Lib\site-packages\ultralytics\engine\trainer.py", line 634, in get_dataset
+    data = check_det_dataset(self.args.data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\OCR\.venv\Lib\site-packages\ultralytics\data\utils.py", line 421, in check_det_dataset
+    raise SyntaxError(
+SyntaxError: data/data.yaml 'train:' key missing .
+'train' and 'val' are required in all data YAMLs.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\OCR\trainer.py", line 290, in train
+    results = model.train(**train_args)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\OCR\.venv\Lib\site-packages\ultralytics\engine\model.py", line 795, in train
+    self.trainer = (trainer or self._smart_load("trainer"))(overrides=args, _callbacks=self.callbacks)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\OCR\.venv\Lib\site-packages\ultralytics\models\yolo\detect\train.py", line 65, in __init__
+    super().__init__(cfg, overrides, _callbacks)
+  File "D:\OCR\.venv\Lib\site-packages\ultralytics\engine\trainer.py", line 158, in __init__
+    self.data = self.get_dataset()
+                ^^^^^^^^^^^^^^^^^^
+  File "D:\OCR\.venv\Lib\site-packages\ultralytics\engine\trainer.py", line 638, in get_dataset
+    raise RuntimeError(emojis(f"Dataset '{clean_url(self.args.data)}' error ❌ {e}")) from e
+RuntimeError: Dataset 'data/data.yaml' error  data/data.yaml 'train:' key missing .
+'train' and 'val' are required in all data YAMLs.
+2025-10-02 09:37:24 - digital_ocr - CRITICAL - [logger.py:72] - Training failed: Dataset 'data/data.yaml' error  data/data.yaml 'train:' key missing .
+'train' and 'val' are required in all data YAMLs.
+Traceback (most recent call last):
+  File "D:\OCR\.venv\Lib\site-packages\ultralytics\engine\trainer.py", line 634, in get_dataset
+    data = check_det_dataset(self.args.data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\OCR\.venv\Lib\site-packages\ultralytics\data\utils.py", line 421, in check_det_dataset
+    raise SyntaxError(
+SyntaxError: data/data.yaml 'train:' key missing .
+'train' and 'val' are required in all data YAMLs.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\OCR\main.py", line 172, in run_training
+    results = trainer.train(
+              ^^^^^^^^^^^^^^
+  File "D:\OCR\trainer.py", line 290, in train
+    results = model.train(**train_args)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\OCR\.venv\Lib\site-packages\ultralytics\engine\model.py", line 795, in train
+    self.trainer = (trainer or self._smart_load("trainer"))(overrides=args, _callbacks=self.callbacks)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\OCR\.venv\Lib\site-packages\ultralytics\models\yolo\detect\train.py", line 65, in __init__
+    super().__init__(cfg, overrides, _callbacks)
+  File "D:\OCR\.venv\Lib\site-packages\ultralytics\engine\trainer.py", line 158, in __init__
+    self.data = self.get_dataset()
+                ^^^^^^^^^^^^^^^^^^
+  File "D:\OCR\.venv\Lib\site-packages\ultralytics\engine\trainer.py", line 638, in get_dataset
+    raise RuntimeError(emojis(f"Dataset '{clean_url(self.args.data)}' error ❌ {e}")) from e
+RuntimeError: Dataset 'data/data.yaml' error  data/data.yaml 'train:' key missing .
+'train' and 'val' are required in all data YAMLs.
+2025-10-02 14:32:28 - digital_ocr - ERROR - [logger.py:69] - Image not found: 13_31_jpg.rf.630b0b2987e8f56affeb5df79c399773.jpg
+2025-10-02 16:07:39 - digital_ocr - CRITICAL - [logger.py:72] - Unexpected error: 'ValidationConfig' object has no attribute 'ignore_chars'
+Traceback (most recent call last):
+  File "D:\OCR\main.py", line 88, in run_detection
+    result = detector.detect_digits(
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\OCR\detector.py", line 120, in detect_digits
+    detected_number = self._clean_number(detected_number)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\OCR\detector.py", line 141, in _clean_number
+    for char in config.validation.ignore_chars:
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'ValidationConfig' object has no attribute 'ignore_chars'
+2025-10-02 19:44:00 - digital_ocr - CRITICAL - [logger.py:72] - Unexpected error: 'timestamp'
+Traceback (most recent call last):
+  File "D:\OCR\main.py", line 107, in run_detection
+    print(f"Timestamp:        {result['timestamp']}")
+                               ~~~~~~^^^^^^^^^^^^^
+KeyError: 'timestamp'
+2025-10-02 19:45:01 - digital_ocr - CRITICAL - [logger.py:72] - Unexpected error: 'timestamp'
+Traceback (most recent call last):
+  File "D:\OCR\main.py", line 107, in run_detection
+    print(f"Timestamp:        {result['timestamp']}")
+                               ~~~~~~^^^^^^^^^^^^^
+KeyError: 'timestamp'
+2025-10-02 19:48:45 - digital_ocr - CRITICAL - [logger.py:72] - Unexpected error: 'timestamp'
+Traceback (most recent call last):
+  File "D:\OCR\main.py", line 107, in run_detection
+    print(f"Timestamp:        {result['timestamp']}")
+                               ~~~~~~^^^^^^^^^^^^^
+KeyError: 'timestamp'
+2025-10-02 19:50:30 - digital_ocr - CRITICAL - [logger.py:72] - Unexpected error: 'timestamp'
+Traceback (most recent call last):
+  File "D:\OCR\main.py", line 107, in run_detection
+    print(f"Timestamp:        {result['timestamp']}")
+                               ~~~~~~^^^^^^^^^^^^^
+KeyError: 'timestamp'
+2025-10-02 19:54:02 - digital_ocr - CRITICAL - [logger.py:72] - Unexpected error: 'timestamp'
+Traceback (most recent call last):
+  File "D:\OCR\main.py", line 107, in run_detection
+    print(f"Timestamp:        {result['timestamp']}")
+                               ~~~~~~^^^^^^^^^^^^^
+KeyError: 'timestamp'

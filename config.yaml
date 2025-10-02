@@ -1,0 +1,37 @@
+# Ultralytics YOLO 🚀, AGPL-3.0 license
+# Custom configuration for YOLOv11 with medium-augmentation COCO training
+
+# General Settings
+task: detect
+mode: train
+model: D:/OCR/models/yolov8n.pt
+data: D:/OCR/data/data.yaml
+project: D:/OCR
+name: runs/train/exp
+exist_ok: False
+device: 0
+workers: 8
+seed: 0
+deterministic: True
+verbose: True
+
+# Training Settings
+epochs: 300
+patience: 100
+batch: 16        # increase if VRAM allows
+imgsz: 640       # try 512 for faster, 768 for more accurate
+pretrained: True
+optimizer: SGD   # faster than AdamW on your GPU
+save: True
+cache: ram
+amp: True
+multi_scale: False
+
+# Validation/Test Settings
+val: True
+split: val
+conf: 0.25
+iou: 0.7
+max_det: 300
+half: True       # speeds up validation
+plots: True

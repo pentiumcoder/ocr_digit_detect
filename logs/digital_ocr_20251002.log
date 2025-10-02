@@ -1,0 +1,943 @@
+2025-10-02 09:23:08 - digital_ocr - INFO - [logger.py:63] - Trainer initialized with data: data/data.yaml
+2025-10-02 09:23:08 - digital_ocr - INFO - [logger.py:63] - ================================================================================
+2025-10-02 09:23:08 - digital_ocr - INFO - [logger.py:63] - YOLO TRAINING CONFIGURATION
+2025-10-02 09:23:08 - digital_ocr - INFO - [logger.py:63] - ================================================================================
+2025-10-02 09:23:08 - digital_ocr - INFO - [logger.py:63] - Model: models/yolov8n.pt
+2025-10-02 09:23:08 - digital_ocr - INFO - [logger.py:63] - Dataset: data/data.yaml
+2025-10-02 09:23:08 - digital_ocr - INFO - [logger.py:63] - --------------------------------------------------------------------------------
+2025-10-02 09:23:08 - digital_ocr - INFO - [logger.py:63] - Training Parameters:
+2025-10-02 09:23:08 - digital_ocr - INFO - [logger.py:63] -   Epochs: 300
+2025-10-02 09:23:08 - digital_ocr - INFO - [logger.py:63] -   Batch size: 16
+2025-10-02 09:23:08 - digital_ocr - INFO - [logger.py:63] -   Image size: 640
+2025-10-02 09:23:08 - digital_ocr - INFO - [logger.py:63] -   Device: 0
+2025-10-02 09:23:08 - digital_ocr - INFO - [logger.py:63] - --------------------------------------------------------------------------------
+2025-10-02 09:23:08 - digital_ocr - INFO - [logger.py:63] - Optimization:
+2025-10-02 09:23:08 - digital_ocr - INFO - [logger.py:63] -   Optimizer: AdamW
+2025-10-02 09:23:08 - digital_ocr - INFO - [logger.py:63] -   Learning rate (lr0): 0.001
+2025-10-02 09:23:08 - digital_ocr - INFO - [logger.py:63] -   Momentum: 0.937
+2025-10-02 09:23:08 - digital_ocr - INFO - [logger.py:63] -   Weight decay: 0.0005
+2025-10-02 09:23:08 - digital_ocr - INFO - [logger.py:63] -   Cosine LR: True
+2025-10-02 09:23:08 - digital_ocr - INFO - [logger.py:63] -   AMP: True
+2025-10-02 09:23:08 - digital_ocr - INFO - [logger.py:63] - ================================================================================
+2025-10-02 09:23:08 - digital_ocr - INFO - [logger.py:63] - Loading model from: models/yolov8n.pt
+2025-10-02 09:23:08 - digital_ocr - INFO - [logger.py:63] - Starting training...
+2025-10-02 09:23:08 - digital_ocr - INFO - [logger.py:63] - ================================================================================
+2025-10-02 09:23:08 - digital_ocr - ERROR - [logger.py:69] - Training failed: Invalid CUDA 'device=0' requested. Use 'device=cpu' or pass valid CUDA device(s) if available, i.e. 'device=0' or 'device=0,1,2,3' for Multi-GPU.
+
+torch.cuda.is_available(): False
+torch.cuda.device_count(): 0
+os.environ['CUDA_VISIBLE_DEVICES']: None
+See https://pytorch.org/get-started/locally/ for up-to-date torch install instructions if no CUDA devices are seen by torch.
+Traceback (most recent call last):
+  File "D:\OCR\trainer.py", line 290, in train
+    results = model.train(**train_args)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\OCR\.venv\Lib\site-packages\ultralytics\engine\model.py", line 795, in train
+    self.trainer = (trainer or self._smart_load("trainer"))(overrides=args, _callbacks=self.callbacks)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\OCR\.venv\Lib\site-packages\ultralytics\models\yolo\detect\train.py", line 65, in __init__
+    super().__init__(cfg, overrides, _callbacks)
+  File "D:\OCR\.venv\Lib\site-packages\ultralytics\engine\trainer.py", line 126, in __init__
+    self.device = select_device(self.args.device)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\OCR\.venv\Lib\site-packages\ultralytics\utils\torch_utils.py", line 199, in select_device
+    raise ValueError(
+ValueError: Invalid CUDA 'device=0' requested. Use 'device=cpu' or pass valid CUDA device(s) if available, i.e. 'device=0' or 'device=0,1,2,3' for Multi-GPU.
+
+torch.cuda.is_available(): False
+torch.cuda.device_count(): 0
+os.environ['CUDA_VISIBLE_DEVICES']: None
+See https://pytorch.org/get-started/locally/ for up-to-date torch install instructions if no CUDA devices are seen by torch.
+
+2025-10-02 09:23:08 - digital_ocr - CRITICAL - [logger.py:72] - Training failed: Invalid CUDA 'device=0' requested. Use 'device=cpu' or pass valid CUDA device(s) if available, i.e. 'device=0' or 'device=0,1,2,3' for Multi-GPU.
+
+torch.cuda.is_available(): False
+torch.cuda.device_count(): 0
+os.environ['CUDA_VISIBLE_DEVICES']: None
+See https://pytorch.org/get-started/locally/ for up-to-date torch install instructions if no CUDA devices are seen by torch.
+Traceback (most recent call last):
+  File "D:\OCR\main.py", line 172, in run_training
+    results = trainer.train(
+              ^^^^^^^^^^^^^^
+  File "D:\OCR\trainer.py", line 290, in train
+    results = model.train(**train_args)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\OCR\.venv\Lib\site-packages\ultralytics\engine\model.py", line 795, in train
+    self.trainer = (trainer or self._smart_load("trainer"))(overrides=args, _callbacks=self.callbacks)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\OCR\.venv\Lib\site-packages\ultralytics\models\yolo\detect\train.py", line 65, in __init__
+    super().__init__(cfg, overrides, _callbacks)
+  File "D:\OCR\.venv\Lib\site-packages\ultralytics\engine\trainer.py", line 126, in __init__
+    self.device = select_device(self.args.device)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\OCR\.venv\Lib\site-packages\ultralytics\utils\torch_utils.py", line 199, in select_device
+    raise ValueError(
+ValueError: Invalid CUDA 'device=0' requested. Use 'device=cpu' or pass valid CUDA device(s) if available, i.e. 'device=0' or 'device=0,1,2,3' for Multi-GPU.
+
+torch.cuda.is_available(): False
+torch.cuda.device_count(): 0
+os.environ['CUDA_VISIBLE_DEVICES']: None
+See https://pytorch.org/get-started/locally/ for up-to-date torch install instructions if no CUDA devices are seen by torch.
+
+2025-10-02 09:37:23 - digital_ocr - INFO - [logger.py:63] - Trainer initialized with data: data/data.yaml
+2025-10-02 09:37:23 - digital_ocr - INFO - [logger.py:63] - ================================================================================
+2025-10-02 09:37:23 - digital_ocr - INFO - [logger.py:63] - YOLO TRAINING CONFIGURATION
+2025-10-02 09:37:23 - digital_ocr - INFO - [logger.py:63] - ================================================================================
+2025-10-02 09:37:23 - digital_ocr - INFO - [logger.py:63] - Model: models/yolov8n.pt
+2025-10-02 09:37:23 - digital_ocr - INFO - [logger.py:63] - Dataset: data/data.yaml
+2025-10-02 09:37:23 - digital_ocr - INFO - [logger.py:63] - --------------------------------------------------------------------------------
+2025-10-02 09:37:23 - digital_ocr - INFO - [logger.py:63] - Training Parameters:
+2025-10-02 09:37:23 - digital_ocr - INFO - [logger.py:63] -   Epochs: 300
+2025-10-02 09:37:23 - digital_ocr - INFO - [logger.py:63] -   Batch size: 16
+2025-10-02 09:37:23 - digital_ocr - INFO - [logger.py:63] -   Image size: 640
+2025-10-02 09:37:23 - digital_ocr - INFO - [logger.py:63] -   Device: 0
+2025-10-02 09:37:23 - digital_ocr - INFO - [logger.py:63] - --------------------------------------------------------------------------------
+2025-10-02 09:37:23 - digital_ocr - INFO - [logger.py:63] - Optimization:
+2025-10-02 09:37:23 - digital_ocr - INFO - [logger.py:63] -   Optimizer: AdamW
+2025-10-02 09:37:23 - digital_ocr - INFO - [logger.py:63] -   Learning rate (lr0): 0.001
+2025-10-02 09:37:23 - digital_ocr - INFO - [logger.py:63] -   Momentum: 0.937
+2025-10-02 09:37:23 - digital_ocr - INFO - [logger.py:63] -   Weight decay: 0.0005
+2025-10-02 09:37:23 - digital_ocr - INFO - [logger.py:63] -   Cosine LR: True
+2025-10-02 09:37:23 - digital_ocr - INFO - [logger.py:63] -   AMP: True
+2025-10-02 09:37:23 - digital_ocr - INFO - [logger.py:63] - ================================================================================
+2025-10-02 09:37:23 - digital_ocr - INFO - [logger.py:63] - Loading model from: models/yolov8n.pt
+2025-10-02 09:37:23 - digital_ocr - INFO - [logger.py:63] - Starting training...
+2025-10-02 09:37:23 - digital_ocr - INFO - [logger.py:63] - ================================================================================
+2025-10-02 09:37:24 - digital_ocr - ERROR - [logger.py:69] - Training failed: Dataset 'data/data.yaml' error  data/data.yaml 'train:' key missing .
+'train' and 'val' are required in all data YAMLs.
+Traceback (most recent call last):
+  File "D:\OCR\.venv\Lib\site-packages\ultralytics\engine\trainer.py", line 634, in get_dataset
+    data = check_det_dataset(self.args.data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\OCR\.venv\Lib\site-packages\ultralytics\data\utils.py", line 421, in check_det_dataset
+    raise SyntaxError(
+SyntaxError: data/data.yaml 'train:' key missing .
+'train' and 'val' are required in all data YAMLs.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\OCR\trainer.py", line 290, in train
+    results = model.train(**train_args)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\OCR\.venv\Lib\site-packages\ultralytics\engine\model.py", line 795, in train
+    self.trainer = (trainer or self._smart_load("trainer"))(overrides=args, _callbacks=self.callbacks)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\OCR\.venv\Lib\site-packages\ultralytics\models\yolo\detect\train.py", line 65, in __init__
+    super().__init__(cfg, overrides, _callbacks)
+  File "D:\OCR\.venv\Lib\site-packages\ultralytics\engine\trainer.py", line 158, in __init__
+    self.data = self.get_dataset()
+                ^^^^^^^^^^^^^^^^^^
+  File "D:\OCR\.venv\Lib\site-packages\ultralytics\engine\trainer.py", line 638, in get_dataset
+    raise RuntimeError(emojis(f"Dataset '{clean_url(self.args.data)}' error ❌ {e}")) from e
+RuntimeError: Dataset 'data/data.yaml' error  data/data.yaml 'train:' key missing .
+'train' and 'val' are required in all data YAMLs.
+2025-10-02 09:37:24 - digital_ocr - CRITICAL - [logger.py:72] - Training failed: Dataset 'data/data.yaml' error  data/data.yaml 'train:' key missing .
+'train' and 'val' are required in all data YAMLs.
+Traceback (most recent call last):
+  File "D:\OCR\.venv\Lib\site-packages\ultralytics\engine\trainer.py", line 634, in get_dataset
+    data = check_det_dataset(self.args.data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\OCR\.venv\Lib\site-packages\ultralytics\data\utils.py", line 421, in check_det_dataset
+    raise SyntaxError(
+SyntaxError: data/data.yaml 'train:' key missing .
+'train' and 'val' are required in all data YAMLs.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\OCR\main.py", line 172, in run_training
+    results = trainer.train(
+              ^^^^^^^^^^^^^^
+  File "D:\OCR\trainer.py", line 290, in train
+    results = model.train(**train_args)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\OCR\.venv\Lib\site-packages\ultralytics\engine\model.py", line 795, in train
+    self.trainer = (trainer or self._smart_load("trainer"))(overrides=args, _callbacks=self.callbacks)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\OCR\.venv\Lib\site-packages\ultralytics\models\yolo\detect\train.py", line 65, in __init__
+    super().__init__(cfg, overrides, _callbacks)
+  File "D:\OCR\.venv\Lib\site-packages\ultralytics\engine\trainer.py", line 158, in __init__
+    self.data = self.get_dataset()
+                ^^^^^^^^^^^^^^^^^^
+  File "D:\OCR\.venv\Lib\site-packages\ultralytics\engine\trainer.py", line 638, in get_dataset
+    raise RuntimeError(emojis(f"Dataset '{clean_url(self.args.data)}' error ❌ {e}")) from e
+RuntimeError: Dataset 'data/data.yaml' error  data/data.yaml 'train:' key missing .
+'train' and 'val' are required in all data YAMLs.
+2025-10-02 09:40:26 - digital_ocr - INFO - [logger.py:63] - Trainer initialized with data: data/data.yaml
+2025-10-02 09:40:26 - digital_ocr - INFO - [logger.py:63] - ================================================================================
+2025-10-02 09:40:26 - digital_ocr - INFO - [logger.py:63] - YOLO TRAINING CONFIGURATION
+2025-10-02 09:40:26 - digital_ocr - INFO - [logger.py:63] - ================================================================================
+2025-10-02 09:40:26 - digital_ocr - INFO - [logger.py:63] - Model: models/yolov8n.pt
+2025-10-02 09:40:26 - digital_ocr - INFO - [logger.py:63] - Dataset: data/data.yaml
+2025-10-02 09:40:26 - digital_ocr - INFO - [logger.py:63] - --------------------------------------------------------------------------------
+2025-10-02 09:40:26 - digital_ocr - INFO - [logger.py:63] - Training Parameters:
+2025-10-02 09:40:26 - digital_ocr - INFO - [logger.py:63] -   Epochs: 300
+2025-10-02 09:40:26 - digital_ocr - INFO - [logger.py:63] -   Batch size: 16
+2025-10-02 09:40:26 - digital_ocr - INFO - [logger.py:63] -   Image size: 640
+2025-10-02 09:40:26 - digital_ocr - INFO - [logger.py:63] -   Device: 0
+2025-10-02 09:40:26 - digital_ocr - INFO - [logger.py:63] - --------------------------------------------------------------------------------
+2025-10-02 09:40:26 - digital_ocr - INFO - [logger.py:63] - Optimization:
+2025-10-02 09:40:26 - digital_ocr - INFO - [logger.py:63] -   Optimizer: AdamW
+2025-10-02 09:40:26 - digital_ocr - INFO - [logger.py:63] -   Learning rate (lr0): 0.001
+2025-10-02 09:40:26 - digital_ocr - INFO - [logger.py:63] -   Momentum: 0.937
+2025-10-02 09:40:26 - digital_ocr - INFO - [logger.py:63] -   Weight decay: 0.0005
+2025-10-02 09:40:26 - digital_ocr - INFO - [logger.py:63] -   Cosine LR: True
+2025-10-02 09:40:26 - digital_ocr - INFO - [logger.py:63] -   AMP: True
+2025-10-02 09:40:26 - digital_ocr - INFO - [logger.py:63] - ================================================================================
+2025-10-02 09:40:26 - digital_ocr - INFO - [logger.py:63] - Loading model from: models/yolov8n.pt
+2025-10-02 09:40:26 - digital_ocr - INFO - [logger.py:63] - Starting training...
+2025-10-02 09:40:26 - digital_ocr - INFO - [logger.py:63] - ================================================================================
+2025-10-02 09:44:42 - digital_ocr - INFO - [logger.py:63] - ================================================================================
+2025-10-02 09:44:42 - digital_ocr - INFO - [logger.py:63] - ✓ Training completed successfully!
+2025-10-02 09:44:42 - digital_ocr - INFO - [logger.py:63] - ✓ Best model saved to: D:\OCR\models\yolov8n-finetuned.pt
+2025-10-02 09:44:42 - digital_ocr - INFO - [logger.py:63] - Training completed successfully!
+2025-10-02 09:45:45 - digital_ocr - INFO - [logger.py:63] - Trainer initialized with data: data/data.yaml
+2025-10-02 09:45:45 - digital_ocr - INFO - [logger.py:63] - ================================================================================
+2025-10-02 09:45:45 - digital_ocr - INFO - [logger.py:63] - YOLO TRAINING CONFIGURATION
+2025-10-02 09:45:45 - digital_ocr - INFO - [logger.py:63] - ================================================================================
+2025-10-02 09:45:45 - digital_ocr - INFO - [logger.py:63] - Model: models/yolov8n.pt
+2025-10-02 09:45:45 - digital_ocr - INFO - [logger.py:63] - Dataset: data/data.yaml
+2025-10-02 09:45:45 - digital_ocr - INFO - [logger.py:63] - --------------------------------------------------------------------------------
+2025-10-02 09:45:45 - digital_ocr - INFO - [logger.py:63] - Training Parameters:
+2025-10-02 09:45:45 - digital_ocr - INFO - [logger.py:63] -   Epochs: 300
+2025-10-02 09:45:45 - digital_ocr - INFO - [logger.py:63] -   Batch size: 16
+2025-10-02 09:45:45 - digital_ocr - INFO - [logger.py:63] -   Image size: 640
+2025-10-02 09:45:45 - digital_ocr - INFO - [logger.py:63] -   Device: 0
+2025-10-02 09:45:45 - digital_ocr - INFO - [logger.py:63] - --------------------------------------------------------------------------------
+2025-10-02 09:45:45 - digital_ocr - INFO - [logger.py:63] - Optimization:
+2025-10-02 09:45:45 - digital_ocr - INFO - [logger.py:63] -   Optimizer: AdamW
+2025-10-02 09:45:45 - digital_ocr - INFO - [logger.py:63] -   Learning rate (lr0): 0.001
+2025-10-02 09:45:45 - digital_ocr - INFO - [logger.py:63] -   Momentum: 0.937
+2025-10-02 09:45:45 - digital_ocr - INFO - [logger.py:63] -   Weight decay: 0.0005
+2025-10-02 09:45:45 - digital_ocr - INFO - [logger.py:63] -   Cosine LR: True
+2025-10-02 09:45:45 - digital_ocr - INFO - [logger.py:63] -   AMP: True
+2025-10-02 09:45:45 - digital_ocr - INFO - [logger.py:63] - ================================================================================
+2025-10-02 09:45:45 - digital_ocr - INFO - [logger.py:63] - Loading model from: models/yolov8n.pt
+2025-10-02 09:45:45 - digital_ocr - INFO - [logger.py:63] - Starting training...
+2025-10-02 09:45:45 - digital_ocr - INFO - [logger.py:63] - ================================================================================
+2025-10-02 09:50:12 - digital_ocr - INFO - [logger.py:63] - ================================================================================
+2025-10-02 09:50:12 - digital_ocr - INFO - [logger.py:63] - ✓ Training completed successfully!
+2025-10-02 09:50:12 - digital_ocr - INFO - [logger.py:63] - ✓ Best model saved to: D:\OCR\models\yolov8n-finetuned.pt
+2025-10-02 09:50:12 - digital_ocr - INFO - [logger.py:63] - Training completed successfully!
+2025-10-02 12:46:56 - digital_ocr - INFO - [logger.py:63] - Trainer initialized with data: data/data.yaml
+2025-10-02 12:46:56 - digital_ocr - INFO - [logger.py:63] - ================================================================================
+2025-10-02 12:46:56 - digital_ocr - INFO - [logger.py:63] - YOLO TRAINING CONFIGURATION
+2025-10-02 12:46:56 - digital_ocr - INFO - [logger.py:63] - ================================================================================
+2025-10-02 12:46:56 - digital_ocr - INFO - [logger.py:63] - Model: models/yolov8n.pt
+2025-10-02 12:46:56 - digital_ocr - INFO - [logger.py:63] - Dataset: data/data.yaml
+2025-10-02 12:46:56 - digital_ocr - INFO - [logger.py:63] - --------------------------------------------------------------------------------
+2025-10-02 12:46:56 - digital_ocr - INFO - [logger.py:63] - Training Parameters:
+2025-10-02 12:46:56 - digital_ocr - INFO - [logger.py:63] -   Epochs: 300
+2025-10-02 12:46:56 - digital_ocr - INFO - [logger.py:63] -   Batch size: 16
+2025-10-02 12:46:56 - digital_ocr - INFO - [logger.py:63] -   Image size: 640
+2025-10-02 12:46:56 - digital_ocr - INFO - [logger.py:63] -   Device: 0
+2025-10-02 12:46:56 - digital_ocr - INFO - [logger.py:63] - --------------------------------------------------------------------------------
+2025-10-02 12:46:56 - digital_ocr - INFO - [logger.py:63] - Optimization:
+2025-10-02 12:46:56 - digital_ocr - INFO - [logger.py:63] -   Optimizer: AdamW
+2025-10-02 12:46:56 - digital_ocr - INFO - [logger.py:63] -   Learning rate (lr0): 0.001
+2025-10-02 12:46:56 - digital_ocr - INFO - [logger.py:63] -   Momentum: 0.937
+2025-10-02 12:46:56 - digital_ocr - INFO - [logger.py:63] -   Weight decay: 0.0005
+2025-10-02 12:46:56 - digital_ocr - INFO - [logger.py:63] -   Cosine LR: True
+2025-10-02 12:46:56 - digital_ocr - INFO - [logger.py:63] -   AMP: True
+2025-10-02 12:46:56 - digital_ocr - INFO - [logger.py:63] - ================================================================================
+2025-10-02 12:46:56 - digital_ocr - INFO - [logger.py:63] - Loading model from: models/yolov8n.pt
+2025-10-02 12:46:56 - digital_ocr - INFO - [logger.py:63] - Starting training...
+2025-10-02 12:46:56 - digital_ocr - INFO - [logger.py:63] - ================================================================================
+2025-10-02 12:51:12 - digital_ocr - INFO - [logger.py:63] - ================================================================================
+2025-10-02 12:51:12 - digital_ocr - INFO - [logger.py:63] - ✓ Training completed successfully!
+2025-10-02 12:51:12 - digital_ocr - INFO - [logger.py:63] - ✓ Best model saved to: D:\OCR\models\yolov8n-finetuned.pt
+2025-10-02 12:51:12 - digital_ocr - INFO - [logger.py:63] - Training completed successfully!
+2025-10-02 14:25:07 - digital_ocr - INFO - [logger.py:63] - Trainer initialized with data: data/data.yaml
+2025-10-02 14:25:07 - digital_ocr - INFO - [logger.py:63] - ================================================================================
+2025-10-02 14:25:07 - digital_ocr - INFO - [logger.py:63] - YOLO TRAINING CONFIGURATION
+2025-10-02 14:25:07 - digital_ocr - INFO - [logger.py:63] - ================================================================================
+2025-10-02 14:25:07 - digital_ocr - INFO - [logger.py:63] - Model: models/yolov8n.pt
+2025-10-02 14:25:07 - digital_ocr - INFO - [logger.py:63] - Dataset: data/data.yaml
+2025-10-02 14:25:07 - digital_ocr - INFO - [logger.py:63] - --------------------------------------------------------------------------------
+2025-10-02 14:25:07 - digital_ocr - INFO - [logger.py:63] - Training Parameters:
+2025-10-02 14:25:07 - digital_ocr - INFO - [logger.py:63] -   Epochs: 300
+2025-10-02 14:25:07 - digital_ocr - INFO - [logger.py:63] -   Batch size: 16
+2025-10-02 14:25:07 - digital_ocr - INFO - [logger.py:63] -   Image size: 640
+2025-10-02 14:25:07 - digital_ocr - INFO - [logger.py:63] -   Device: 0
+2025-10-02 14:25:07 - digital_ocr - INFO - [logger.py:63] - --------------------------------------------------------------------------------
+2025-10-02 14:25:07 - digital_ocr - INFO - [logger.py:63] - Optimization:
+2025-10-02 14:25:07 - digital_ocr - INFO - [logger.py:63] -   Optimizer: AdamW
+2025-10-02 14:25:07 - digital_ocr - INFO - [logger.py:63] -   Learning rate (lr0): 0.001
+2025-10-02 14:25:07 - digital_ocr - INFO - [logger.py:63] -   Momentum: 0.937
+2025-10-02 14:25:07 - digital_ocr - INFO - [logger.py:63] -   Weight decay: 0.0005
+2025-10-02 14:25:07 - digital_ocr - INFO - [logger.py:63] -   Cosine LR: True
+2025-10-02 14:25:07 - digital_ocr - INFO - [logger.py:63] -   AMP: True
+2025-10-02 14:25:07 - digital_ocr - INFO - [logger.py:63] - ================================================================================
+2025-10-02 14:25:07 - digital_ocr - INFO - [logger.py:63] - Loading model from: models/yolov8n.pt
+2025-10-02 14:25:07 - digital_ocr - INFO - [logger.py:63] - Starting training...
+2025-10-02 14:25:07 - digital_ocr - INFO - [logger.py:63] - ================================================================================
+2025-10-02 14:27:58 - digital_ocr - INFO - [logger.py:63] - ================================================================================
+2025-10-02 14:27:58 - digital_ocr - INFO - [logger.py:63] - ✓ Training completed successfully!
+2025-10-02 14:27:58 - digital_ocr - INFO - [logger.py:63] - ✓ Best model saved to: D:\OCR\models\yolov8n-finetuned.pt
+2025-10-02 14:27:58 - digital_ocr - INFO - [logger.py:63] - Training completed successfully!
+2025-10-02 14:30:05 - digital_ocr - INFO - [logger.py:63] - Trainer initialized with data: data/data.yaml
+2025-10-02 14:30:05 - digital_ocr - INFO - [logger.py:63] - ================================================================================
+2025-10-02 14:30:05 - digital_ocr - INFO - [logger.py:63] - Validating model: models/yolov8n-finetuned.pt
+2025-10-02 14:30:05 - digital_ocr - INFO - [logger.py:63] - ================================================================================
+2025-10-02 14:30:17 - digital_ocr - INFO - [logger.py:63] - ================================================================================
+2025-10-02 14:30:17 - digital_ocr - INFO - [logger.py:63] - ✓ Validation completed
+2025-10-02 14:30:17 - digital_ocr - INFO - [logger.py:63] - mAP50: 0.8028
+2025-10-02 14:30:17 - digital_ocr - INFO - [logger.py:63] - mAP50-95: 0.7917
+2025-10-02 14:30:17 - digital_ocr - INFO - [logger.py:63] - Precision: 0.9581
+2025-10-02 14:30:17 - digital_ocr - INFO - [logger.py:63] - Recall: 0.7222
+2025-10-02 14:30:17 - digital_ocr - INFO - [logger.py:63] - ================================================================================
+2025-10-02 14:30:17 - digital_ocr - INFO - [logger.py:63] - Validation completed successfully!
+2025-10-02 14:32:28 - digital_ocr - INFO - [logger.py:63] - Loading YOLO model from: D:\OCR\models\yolov8n-finetuned.pt
+2025-10-02 14:32:28 - digital_ocr - INFO - [logger.py:63] - ✓ Model loaded successfully
+2025-10-02 14:32:28 - digital_ocr - ERROR - [logger.py:69] - Image not found: 13_31_jpg.rf.630b0b2987e8f56affeb5df79c399773.jpg
+2025-10-02 14:34:01 - digital_ocr - INFO - [logger.py:63] - Loading YOLO model from: D:\OCR\models\yolov8n-finetuned.pt
+2025-10-02 14:34:01 - digital_ocr - INFO - [logger.py:63] - ✓ Model loaded successfully
+2025-10-02 14:34:01 - digital_ocr - INFO - [logger.py:63] - Processing: ChatGPTImage.png
+2025-10-02 14:34:02 - digital_ocr - WARNING - [logger.py:66] - No digits detected
+2025-10-02 16:05:02 - digital_ocr - INFO - [logger.py:63] - Loading YOLO model from: D:\OCR\models\yolov8n-finetuned.pt
+2025-10-02 16:05:02 - digital_ocr - INFO - [logger.py:63] - ✓ Model loaded successfully
+2025-10-02 16:05:02 - digital_ocr - INFO - [logger.py:63] - Processing: ChatGPTImage.png
+2025-10-02 16:05:03 - digital_ocr - WARNING - [logger.py:66] - No digits detected
+2025-10-02 16:07:39 - digital_ocr - INFO - [logger.py:63] - Loading YOLO model from: D:\OCR\models\yolov8n-finetuned.pt
+2025-10-02 16:07:39 - digital_ocr - INFO - [logger.py:63] - ✓ Model loaded successfully
+2025-10-02 16:07:39 - digital_ocr - INFO - [logger.py:63] - Processing: 00_06_jpg.rf.a3bfee9c2376b03e2630dea54b8d4e76.jpg
+2025-10-02 16:07:39 - digital_ocr - CRITICAL - [logger.py:72] - Unexpected error: 'ValidationConfig' object has no attribute 'ignore_chars'
+Traceback (most recent call last):
+  File "D:\OCR\main.py", line 88, in run_detection
+    result = detector.detect_digits(
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\OCR\detector.py", line 120, in detect_digits
+    detected_number = self._clean_number(detected_number)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\OCR\detector.py", line 141, in _clean_number
+    for char in config.validation.ignore_chars:
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'ValidationConfig' object has no attribute 'ignore_chars'
+2025-10-02 18:42:34 - digital_ocr - INFO - [logger.py:63] - ============================================================
+2025-10-02 18:42:34 - digital_ocr - INFO - [logger.py:63] - TRAINING 12-CLASS MODEL (0-9, :, .)
+2025-10-02 18:42:34 - digital_ocr - INFO - [logger.py:63] - ============================================================
+2025-10-02 18:42:34 - digital_ocr - INFO - [logger.py:63] - Trainer initialized with data: data/data.yaml
+2025-10-02 18:42:34 - digital_ocr - INFO - [logger.py:63] - ================================================================================
+2025-10-02 18:42:34 - digital_ocr - INFO - [logger.py:63] - YOLO TRAINING CONFIGURATION
+2025-10-02 18:42:34 - digital_ocr - INFO - [logger.py:63] - ================================================================================
+2025-10-02 18:42:34 - digital_ocr - INFO - [logger.py:63] - Model: models/yolov8n.pt
+2025-10-02 18:42:34 - digital_ocr - INFO - [logger.py:63] - Dataset: data/data.yaml
+2025-10-02 18:42:34 - digital_ocr - INFO - [logger.py:63] - --------------------------------------------------------------------------------
+2025-10-02 18:42:34 - digital_ocr - INFO - [logger.py:63] - Training Parameters:
+2025-10-02 18:42:34 - digital_ocr - INFO - [logger.py:63] -   Epochs: 300
+2025-10-02 18:42:34 - digital_ocr - INFO - [logger.py:63] -   Batch size: 16
+2025-10-02 18:42:34 - digital_ocr - INFO - [logger.py:63] -   Image size: 640
+2025-10-02 18:42:34 - digital_ocr - INFO - [logger.py:63] -   Device: 0
+2025-10-02 18:42:34 - digital_ocr - INFO - [logger.py:63] - --------------------------------------------------------------------------------
+2025-10-02 18:42:34 - digital_ocr - INFO - [logger.py:63] - Optimization:
+2025-10-02 18:42:34 - digital_ocr - INFO - [logger.py:63] -   Optimizer: AdamW
+2025-10-02 18:42:34 - digital_ocr - INFO - [logger.py:63] -   Learning rate (lr0): 0.01
+2025-10-02 18:42:34 - digital_ocr - INFO - [logger.py:63] -   Momentum: 0.937
+2025-10-02 18:42:34 - digital_ocr - INFO - [logger.py:63] -   Weight decay: 0.0005
+2025-10-02 18:42:34 - digital_ocr - INFO - [logger.py:63] -   Cosine LR: True
+2025-10-02 18:42:34 - digital_ocr - INFO - [logger.py:63] -   AMP: True
+2025-10-02 18:42:34 - digital_ocr - INFO - [logger.py:63] - ================================================================================
+2025-10-02 18:42:34 - digital_ocr - INFO - [logger.py:63] - Loading model from: models/yolov8n.pt
+2025-10-02 18:42:34 - digital_ocr - INFO - [logger.py:63] - Starting training...
+2025-10-02 18:42:34 - digital_ocr - INFO - [logger.py:63] - ================================================================================
+2025-10-02 19:37:01 - digital_ocr - INFO - [logger.py:63] - ================================================================================
+2025-10-02 19:37:01 - digital_ocr - INFO - [logger.py:63] - ✓ Training completed successfully!
+2025-10-02 19:37:01 - digital_ocr - INFO - [logger.py:63] - ✓ Best model saved to: D:\OCR\models\yolov8n-finetuned.pt
+2025-10-02 19:37:01 - digital_ocr - INFO - [logger.py:63] - 
+============================================================
+2025-10-02 19:37:01 - digital_ocr - INFO - [logger.py:63] - ✓ TRAINING COMPLETED SUCCESSFULLY!
+2025-10-02 19:37:01 - digital_ocr - INFO - [logger.py:63] - ============================================================
+2025-10-02 19:37:01 - digital_ocr - INFO - [logger.py:63] - Model saved to: D:\OCR\models\yolov8n-finetuned.pt
+2025-10-02 19:37:01 - digital_ocr - INFO - [logger.py:63] - ============================================================
+
+2025-10-02 19:44:00 - digital_ocr - INFO - [logger.py:63] - ============================================================
+2025-10-02 19:44:00 - digital_ocr - INFO - [logger.py:63] - DIGIT DETECTION - 12 Classes (0-9, :, .)
+2025-10-02 19:44:00 - digital_ocr - INFO - [logger.py:63] - ============================================================
+2025-10-02 19:44:00 - digital_ocr - INFO - [logger.py:63] - Loading YOLO model from: D:\OCR\models\yolov8n-finetuned.pt
+2025-10-02 19:44:00 - digital_ocr - INFO - [logger.py:63] - ✓ Model loaded successfully
+2025-10-02 19:44:00 - digital_ocr - INFO - [logger.py:63] - Processing: デジタル時計-1_OCR用.jpg
+2025-10-02 19:44:00 - digital_ocr - WARNING - [logger.py:66] - No digits detected
+2025-10-02 19:44:00 - digital_ocr - CRITICAL - [logger.py:72] - Unexpected error: 'timestamp'
+Traceback (most recent call last):
+  File "D:\OCR\main.py", line 107, in run_detection
+    print(f"Timestamp:        {result['timestamp']}")
+                               ~~~~~~^^^^^^^^^^^^^
+KeyError: 'timestamp'
+2025-10-02 19:45:00 - digital_ocr - INFO - [logger.py:63] - ============================================================
+2025-10-02 19:45:00 - digital_ocr - INFO - [logger.py:63] - DIGIT DETECTION - 12 Classes (0-9, :, .)
+2025-10-02 19:45:00 - digital_ocr - INFO - [logger.py:63] - ============================================================
+2025-10-02 19:45:00 - digital_ocr - INFO - [logger.py:63] - Loading YOLO model from: D:\OCR\models\yolov8n-finetuned.pt
+2025-10-02 19:45:00 - digital_ocr - INFO - [logger.py:63] - ✓ Model loaded successfully
+2025-10-02 19:45:00 - digital_ocr - INFO - [logger.py:63] - Processing: 00_06_jpg.rf.a3bfee9c2376b03e2630dea54b8d4e76.jpg
+2025-10-02 19:45:01 - digital_ocr - INFO - [logger.py:63] - Detected: 0006 (confidence: 0.913)
+2025-10-02 19:45:01 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_00_06_jpg.rf.a3bfee9c2376b03e2630dea54b8d4e76.jpg
+2025-10-02 19:45:01 - digital_ocr - CRITICAL - [logger.py:72] - Unexpected error: 'timestamp'
+Traceback (most recent call last):
+  File "D:\OCR\main.py", line 107, in run_detection
+    print(f"Timestamp:        {result['timestamp']}")
+                               ~~~~~~^^^^^^^^^^^^^
+KeyError: 'timestamp'
+2025-10-02 19:48:45 - digital_ocr - INFO - [logger.py:63] - ============================================================
+2025-10-02 19:48:45 - digital_ocr - INFO - [logger.py:63] - DIGIT DETECTION - 12 Classes (0-9, :, .)
+2025-10-02 19:48:45 - digital_ocr - INFO - [logger.py:63] - ============================================================
+2025-10-02 19:48:45 - digital_ocr - INFO - [logger.py:63] - Loading YOLO model from: D:\OCR\models\yolov8n-finetuned.pt
+2025-10-02 19:48:45 - digital_ocr - INFO - [logger.py:63] - ✓ Model loaded successfully
+2025-10-02 19:48:45 - digital_ocr - INFO - [logger.py:63] - Processing: ChatGPTImage.png
+2025-10-02 19:48:45 - digital_ocr - INFO - [logger.py:63] - Detected: 2315 (confidence: 0.778)
+2025-10-02 19:48:45 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_ChatGPTImage.png
+2025-10-02 19:48:45 - digital_ocr - CRITICAL - [logger.py:72] - Unexpected error: 'timestamp'
+Traceback (most recent call last):
+  File "D:\OCR\main.py", line 107, in run_detection
+    print(f"Timestamp:        {result['timestamp']}")
+                               ~~~~~~^^^^^^^^^^^^^
+KeyError: 'timestamp'
+2025-10-02 19:50:29 - digital_ocr - INFO - [logger.py:63] - ============================================================
+2025-10-02 19:50:29 - digital_ocr - INFO - [logger.py:63] - DIGIT DETECTION - 12 Classes (0-9, :, .)
+2025-10-02 19:50:29 - digital_ocr - INFO - [logger.py:63] - ============================================================
+2025-10-02 19:50:29 - digital_ocr - INFO - [logger.py:63] - Loading YOLO model from: D:\OCR\models\yolov8n-finetuned.pt
+2025-10-02 19:50:29 - digital_ocr - INFO - [logger.py:63] - ✓ Model loaded successfully
+2025-10-02 19:50:29 - digital_ocr - INFO - [logger.py:63] - Processing: 74011584-5935-48a2-ae30-c2cfb0b26b1f_jpg.rf.0ea4de1f10fb426f84fd55965b28b958.jpg
+2025-10-02 19:50:30 - digital_ocr - INFO - [logger.py:63] - Detected: 3126079. (confidence: 0.759)
+2025-10-02 19:50:30 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_74011584-5935-48a2-ae30-c2cfb0b26b1f_jpg.rf.0ea4de1f10fb426f84fd55965b28b958.jpg
+2025-10-02 19:50:30 - digital_ocr - CRITICAL - [logger.py:72] - Unexpected error: 'timestamp'
+Traceback (most recent call last):
+  File "D:\OCR\main.py", line 107, in run_detection
+    print(f"Timestamp:        {result['timestamp']}")
+                               ~~~~~~^^^^^^^^^^^^^
+KeyError: 'timestamp'
+2025-10-02 19:54:01 - digital_ocr - INFO - [logger.py:63] - ============================================================
+2025-10-02 19:54:01 - digital_ocr - INFO - [logger.py:63] - DIGIT DETECTION - 12 Classes (0-9, :, .)
+2025-10-02 19:54:01 - digital_ocr - INFO - [logger.py:63] - ============================================================
+2025-10-02 19:54:01 - digital_ocr - INFO - [logger.py:63] - Loading YOLO model from: D:\OCR\models\yolov8n-finetuned.pt
+2025-10-02 19:54:01 - digital_ocr - INFO - [logger.py:63] - ✓ Model loaded successfully
+2025-10-02 19:54:01 - digital_ocr - INFO - [logger.py:63] - Processing: watch.jpg
+2025-10-02 19:54:02 - digital_ocr - WARNING - [logger.py:66] - No digits detected
+2025-10-02 19:54:02 - digital_ocr - CRITICAL - [logger.py:72] - Unexpected error: 'timestamp'
+Traceback (most recent call last):
+  File "D:\OCR\main.py", line 107, in run_detection
+    print(f"Timestamp:        {result['timestamp']}")
+                               ~~~~~~^^^^^^^^^^^^^
+KeyError: 'timestamp'
+2025-10-02 20:01:54 - digital_ocr - INFO - [logger.py:63] - ============================================================
+2025-10-02 20:01:54 - digital_ocr - INFO - [logger.py:63] - DIGIT DETECTION - 12 Classes (0-9, :, .)
+2025-10-02 20:01:54 - digital_ocr - INFO - [logger.py:63] - ============================================================
+2025-10-02 20:01:54 - digital_ocr - INFO - [logger.py:63] - Loading YOLO model from: D:\OCR\models\yolov8n-finetuned.pt
+2025-10-02 20:01:54 - digital_ocr - INFO - [logger.py:63] - ✓ Model loaded successfully
+2025-10-02 20:01:54 - digital_ocr - INFO - [logger.py:63] - Processing 172 images...
+2025-10-02 20:01:54 - digital_ocr - INFO - [logger.py:63] - Processing: test\0000441000_300_30067_jpg.rf.9915dc272e5e2bfff2307c030bb8d0f3.jpg
+2025-10-02 20:01:55 - digital_ocr - INFO - [logger.py:63] - Detected: 2664107. (confidence: 0.721)
+2025-10-02 20:01:55 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_0000441000_300_30067_jpg.rf.9915dc272e5e2bfff2307c030bb8d0f3.jpg
+2025-10-02 20:01:55 - digital_ocr - INFO - [logger.py:63] - Processing: test\0002051000_367_17161_jpg.rf.9913ca5a4d0c50b0433fdf5aeebb3814.jpg
+2025-10-02 20:01:55 - digital_ocr - INFO - [logger.py:63] - Detected: 6329:9. (confidence: 0.656)
+2025-10-02 20:01:55 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_0002051000_367_17161_jpg.rf.9913ca5a4d0c50b0433fdf5aeebb3814.jpg
+2025-10-02 20:01:55 - digital_ocr - INFO - [logger.py:63] - Processing: test\0011420000_392_2640_jpg.rf.e474d84794d097c68197c582949f6541.jpg
+2025-10-02 20:01:55 - digital_ocr - INFO - [logger.py:63] - Detected: 1:1152:4:3.7 (confidence: 0.700)
+2025-10-02 20:01:55 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_0011420000_392_2640_jpg.rf.e474d84794d097c68197c582949f6541.jpg
+2025-10-02 20:01:55 - digital_ocr - INFO - [logger.py:63] - Processing: test\0012470000_243_2402_jpg.rf.7e850f7e297b71ed88f1f33b1e294055.jpg
+2025-10-02 20:01:55 - digital_ocr - INFO - [logger.py:63] - Detected: 5 (confidence: 0.367)
+2025-10-02 20:01:55 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_0012470000_243_2402_jpg.rf.7e850f7e297b71ed88f1f33b1e294055.jpg
+2025-10-02 20:01:55 - digital_ocr - INFO - [logger.py:63] - Processing: test\00_06_jpg.rf.a3bfee9c2376b03e2630dea54b8d4e76.jpg
+2025-10-02 20:01:55 - digital_ocr - INFO - [logger.py:63] - Detected: 0006 (confidence: 0.913)
+2025-10-02 20:01:55 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_00_06_jpg.rf.a3bfee9c2376b03e2630dea54b8d4e76.jpg
+2025-10-02 20:01:55 - digital_ocr - INFO - [logger.py:63] - Processing: test\00_57_jpg.rf.953bc7c2df32de55cd1a42d13494095f.jpg
+2025-10-02 20:01:55 - digital_ocr - INFO - [logger.py:63] - Detected: 6 (confidence: 0.684)
+2025-10-02 20:01:55 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_00_57_jpg.rf.953bc7c2df32de55cd1a42d13494095f.jpg
+2025-10-02 20:01:55 - digital_ocr - INFO - [logger.py:63] - Processing: test\00_91_jpg.rf.3d8fba628c887c40a721bbc1a1e6af40.jpg
+2025-10-02 20:01:55 - digital_ocr - INFO - [logger.py:63] - Detected: 0091 (confidence: 0.918)
+2025-10-02 20:01:55 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_00_91_jpg.rf.3d8fba628c887c40a721bbc1a1e6af40.jpg
+2025-10-02 20:01:55 - digital_ocr - INFO - [logger.py:63] - Processing: test\03_29_jpg.rf.27323602091716bb7508a92232ea1eb7.jpg
+2025-10-02 20:01:55 - digital_ocr - INFO - [logger.py:63] - Detected: 0329 (confidence: 0.904)
+2025-10-02 20:01:55 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_03_29_jpg.rf.27323602091716bb7508a92232ea1eb7.jpg
+2025-10-02 20:01:55 - digital_ocr - INFO - [logger.py:63] - Processing: test\03_85_jpg.rf.987a42f4aaca5c7df00debf767c803bc.jpg
+2025-10-02 20:01:55 - digital_ocr - INFO - [logger.py:63] - Detected: 0385 (confidence: 0.902)
+2025-10-02 20:01:55 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_03_85_jpg.rf.987a42f4aaca5c7df00debf767c803bc.jpg
+2025-10-02 20:01:55 - digital_ocr - INFO - [logger.py:63] - Processing: test\03_89_jpg.rf.467d135698007270724f8041a2f710ca.jpg
+2025-10-02 20:01:55 - digital_ocr - INFO - [logger.py:63] - Detected: 0389 (confidence: 0.908)
+2025-10-02 20:01:55 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_03_89_jpg.rf.467d135698007270724f8041a2f710ca.jpg
+2025-10-02 20:01:55 - digital_ocr - INFO - [logger.py:63] - Processing: test\05_91_jpg.rf.ad28352faec599fd0b636d1d12d11698.jpg
+2025-10-02 20:01:55 - digital_ocr - INFO - [logger.py:63] - Detected: 0591 (confidence: 0.914)
+2025-10-02 20:01:55 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_05_91_jpg.rf.ad28352faec599fd0b636d1d12d11698.jpg
+2025-10-02 20:01:55 - digital_ocr - INFO - [logger.py:63] - Processing: test\06_08_jpg.rf.84d0a2f910ad4f4486210c094515bda2.jpg
+2025-10-02 20:01:55 - digital_ocr - INFO - [logger.py:63] - Detected: 0608 (confidence: 0.918)
+2025-10-02 20:01:55 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_06_08_jpg.rf.84d0a2f910ad4f4486210c094515bda2.jpg
+2025-10-02 20:01:55 - digital_ocr - INFO - [logger.py:63] - Processing: test\06_13_jpg.rf.c29368a50527696cc22f888358c36d8f.jpg
+2025-10-02 20:01:55 - digital_ocr - INFO - [logger.py:63] - Detected: 0613 (confidence: 0.903)
+2025-10-02 20:01:55 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_06_13_jpg.rf.c29368a50527696cc22f888358c36d8f.jpg
+2025-10-02 20:01:55 - digital_ocr - INFO - [logger.py:63] - Processing: test\06_93_jpg.rf.6fc359a3a602f10e640ec0343f21cc0d.jpg
+2025-10-02 20:01:55 - digital_ocr - INFO - [logger.py:63] - Detected: 0693 (confidence: 0.901)
+2025-10-02 20:01:55 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_06_93_jpg.rf.6fc359a3a602f10e640ec0343f21cc0d.jpg
+2025-10-02 20:01:55 - digital_ocr - INFO - [logger.py:63] - Processing: test\07_57_jpg.rf.93c01789c6cf4d3f3a38df6a47cb9daa.jpg
+2025-10-02 20:01:55 - digital_ocr - INFO - [logger.py:63] - Detected: 0757 (confidence: 0.922)
+2025-10-02 20:01:55 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_07_57_jpg.rf.93c01789c6cf4d3f3a38df6a47cb9daa.jpg
+2025-10-02 20:01:55 - digital_ocr - INFO - [logger.py:63] - Processing: test\09aaef5e-8e43-4204-a1a4-d424e8bc5321_jpg.rf.037ccbb6fba3d7a060f15d1c19309426.jpg
+2025-10-02 20:01:55 - digital_ocr - INFO - [logger.py:63] - Detected: 4 (confidence: 0.773)
+2025-10-02 20:01:55 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_09aaef5e-8e43-4204-a1a4-d424e8bc5321_jpg.rf.037ccbb6fba3d7a060f15d1c19309426.jpg
+2025-10-02 20:01:55 - digital_ocr - INFO - [logger.py:63] - Processing: test\0a6bd8d9-0d33-40cd-ae3e-30972d4023f3_jpg.rf.32e2a315b048bd649c1f000b6fb58311.jpg
+2025-10-02 20:01:55 - digital_ocr - INFO - [logger.py:63] - Detected: 1124755 (confidence: 0.813)
+2025-10-02 20:01:55 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_0a6bd8d9-0d33-40cd-ae3e-30972d4023f3_jpg.rf.32e2a315b048bd649c1f000b6fb58311.jpg
+2025-10-02 20:01:55 - digital_ocr - INFO - [logger.py:63] - Processing: test\100_jpg.rf.832ef6986b08e734050bbeec429ae2a2.jpg
+2025-10-02 20:01:55 - digital_ocr - INFO - [logger.py:63] - Detected: 25694445 (confidence: 0.863)
+2025-10-02 20:01:55 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_100_jpg.rf.832ef6986b08e734050bbeec429ae2a2.jpg
+2025-10-02 20:01:55 - digital_ocr - INFO - [logger.py:63] - Processing: test\101_jpg.rf.fb24478f34f4a8ac838cdda92f837f80.jpg
+2025-10-02 20:01:55 - digital_ocr - INFO - [logger.py:63] - Detected: 6999. (confidence: 0.351)
+2025-10-02 20:01:55 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_101_jpg.rf.fb24478f34f4a8ac838cdda92f837f80.jpg
+2025-10-02 20:01:55 - digital_ocr - INFO - [logger.py:63] - Processing: test\10_18_jpg.rf.b2c5b0c30be363c04a7b461540b552af.jpg
+2025-10-02 20:01:55 - digital_ocr - INFO - [logger.py:63] - Detected: 1018 (confidence: 0.947)
+2025-10-02 20:01:55 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_10_18_jpg.rf.b2c5b0c30be363c04a7b461540b552af.jpg
+2025-10-02 20:01:55 - digital_ocr - INFO - [logger.py:63] - Processing: test\10_26_jpg.rf.aedb3862efea584b9919db11356713ba.jpg
+2025-10-02 20:01:55 - digital_ocr - INFO - [logger.py:63] - Detected: 1026 (confidence: 0.933)
+2025-10-02 20:01:55 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_10_26_jpg.rf.aedb3862efea584b9919db11356713ba.jpg
+2025-10-02 20:01:55 - digital_ocr - INFO - [logger.py:63] - Processing: test\10_76_jpg.rf.0a7d247320f34ef9e1f06c702ef231e0.jpg
+2025-10-02 20:01:55 - digital_ocr - INFO - [logger.py:63] - Detected: 1076 (confidence: 0.939)
+2025-10-02 20:01:55 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_10_76_jpg.rf.0a7d247320f34ef9e1f06c702ef231e0.jpg
+2025-10-02 20:01:55 - digital_ocr - INFO - [logger.py:63] - Processing: test\118_JPG.rf.3f1d6c79c5a05720d7cdd88848f04fb9.jpg
+2025-10-02 20:01:55 - digital_ocr - INFO - [logger.py:63] - Detected: 111256908. (confidence: 0.812)
+2025-10-02 20:01:55 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_118_JPG.rf.3f1d6c79c5a05720d7cdd88848f04fb9.jpg
+2025-10-02 20:01:55 - digital_ocr - INFO - [logger.py:63] - Processing: test\11_93_jpg.rf.9fbfa5d1ab4f9f99ca33491b58ce6c7b.jpg
+2025-10-02 20:01:56 - digital_ocr - INFO - [logger.py:63] - Detected: 1193 (confidence: 0.937)
+2025-10-02 20:01:56 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_11_93_jpg.rf.9fbfa5d1ab4f9f99ca33491b58ce6c7b.jpg
+2025-10-02 20:01:56 - digital_ocr - INFO - [logger.py:63] - Processing: test\122_JPG.rf.52947597f0edbf486a0af433216e7f6b.jpg
+2025-10-02 20:01:56 - digital_ocr - INFO - [logger.py:63] - Detected: 1113:2106. (confidence: 0.803)
+2025-10-02 20:01:56 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_122_JPG.rf.52947597f0edbf486a0af433216e7f6b.jpg
+2025-10-02 20:01:56 - digital_ocr - INFO - [logger.py:63] - Processing: test\12_20_jpg.rf.bb5af31d7797b5a23593102b7f058949.jpg
+2025-10-02 20:01:56 - digital_ocr - INFO - [logger.py:63] - Detected: 1220 (confidence: 0.944)
+2025-10-02 20:01:56 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_12_20_jpg.rf.bb5af31d7797b5a23593102b7f058949.jpg
+2025-10-02 20:01:56 - digital_ocr - INFO - [logger.py:63] - Processing: test\12_45_jpg.rf.7aeea059ab32b0eebb875243ac5a9a6a.jpg
+2025-10-02 20:01:56 - digital_ocr - INFO - [logger.py:63] - Detected: 1245 (confidence: 0.940)
+2025-10-02 20:01:56 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_12_45_jpg.rf.7aeea059ab32b0eebb875243ac5a9a6a.jpg
+2025-10-02 20:01:56 - digital_ocr - INFO - [logger.py:63] - Processing: test\12_jpg.rf.1de2ca9a746bb91eb3a3cd52ce1bfe06.jpg
+2025-10-02 20:01:56 - digital_ocr - INFO - [logger.py:63] - Detected: 166837 (confidence: 0.744)
+2025-10-02 20:01:56 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_12_jpg.rf.1de2ca9a746bb91eb3a3cd52ce1bfe06.jpg
+2025-10-02 20:01:56 - digital_ocr - INFO - [logger.py:63] - Processing: test\132_JPG.rf.b4ac9940704a0a7e7a85db96df460eeb.jpg
+2025-10-02 20:01:56 - digital_ocr - INFO - [logger.py:63] - Detected: ..235721 (confidence: 0.652)
+2025-10-02 20:01:56 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_132_JPG.rf.b4ac9940704a0a7e7a85db96df460eeb.jpg
+2025-10-02 20:01:56 - digital_ocr - INFO - [logger.py:63] - Processing: test\13_12_jpg.rf.4f9ccc824d4c3021c22407e1353fe62b.jpg
+2025-10-02 20:01:56 - digital_ocr - INFO - [logger.py:63] - Detected: 1312 (confidence: 0.934)
+2025-10-02 20:01:56 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_13_12_jpg.rf.4f9ccc824d4c3021c22407e1353fe62b.jpg
+2025-10-02 20:01:56 - digital_ocr - INFO - [logger.py:63] - Processing: test\13_34_jpg.rf.4a9c1dbd48f39e4e0404008e83eb1071.jpg
+2025-10-02 20:01:56 - digital_ocr - INFO - [logger.py:63] - Detected: 1334 (confidence: 0.925)
+2025-10-02 20:01:56 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_13_34_jpg.rf.4a9c1dbd48f39e4e0404008e83eb1071.jpg
+2025-10-02 20:01:56 - digital_ocr - INFO - [logger.py:63] - Processing: test\13_40_jpg.rf.91fa70205649353e1f972b39025c9f9a.jpg
+2025-10-02 20:01:56 - digital_ocr - INFO - [logger.py:63] - Detected: 1340 (confidence: 0.935)
+2025-10-02 20:01:56 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_13_40_jpg.rf.91fa70205649353e1f972b39025c9f9a.jpg
+2025-10-02 20:01:56 - digital_ocr - INFO - [logger.py:63] - Processing: test\13_61_jpg.rf.ecf5750e9531af4d43dc896d6cbd500e.jpg
+2025-10-02 20:01:56 - digital_ocr - INFO - [logger.py:63] - Detected: 1361 (confidence: 0.935)
+2025-10-02 20:01:56 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_13_61_jpg.rf.ecf5750e9531af4d43dc896d6cbd500e.jpg
+2025-10-02 20:01:56 - digital_ocr - INFO - [logger.py:63] - Processing: test\14_61_jpg.rf.99d7e58f557896e28c867b93ee596f6b.jpg
+2025-10-02 20:01:56 - digital_ocr - INFO - [logger.py:63] - Detected: 1461 (confidence: 0.950)
+2025-10-02 20:01:56 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_14_61_jpg.rf.99d7e58f557896e28c867b93ee596f6b.jpg
+2025-10-02 20:01:56 - digital_ocr - INFO - [logger.py:63] - Processing: test\151_JPG.rf.98dd1e0b6a6110ca18172973875bcd9f.jpg
+2025-10-02 20:01:56 - digital_ocr - INFO - [logger.py:63] - Detected: 078308. (confidence: 0.715)
+2025-10-02 20:01:56 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_151_JPG.rf.98dd1e0b6a6110ca18172973875bcd9f.jpg
+2025-10-02 20:01:56 - digital_ocr - INFO - [logger.py:63] - Processing: test\152_JPG.rf.02105bcfdc69e4db1a6bb337b22ebcff.jpg
+2025-10-02 20:01:56 - digital_ocr - INFO - [logger.py:63] - Detected: 79503. (confidence: 0.809)
+2025-10-02 20:01:56 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_152_JPG.rf.02105bcfdc69e4db1a6bb337b22ebcff.jpg
+2025-10-02 20:01:56 - digital_ocr - INFO - [logger.py:63] - Processing: test\15_63_jpg.rf.c6814fa44930d0f0c8a7ca6706699178.jpg
+2025-10-02 20:01:56 - digital_ocr - INFO - [logger.py:63] - Detected: 1563 (confidence: 0.928)
+2025-10-02 20:01:56 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_15_63_jpg.rf.c6814fa44930d0f0c8a7ca6706699178.jpg
+2025-10-02 20:01:56 - digital_ocr - INFO - [logger.py:63] - Processing: test\15_74_jpg.rf.1391e56e3c3a535198ed8fdad0666fc1.jpg
+2025-10-02 20:01:56 - digital_ocr - INFO - [logger.py:63] - Detected: 1574 (confidence: 0.949)
+2025-10-02 20:01:56 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_15_74_jpg.rf.1391e56e3c3a535198ed8fdad0666fc1.jpg
+2025-10-02 20:01:56 - digital_ocr - INFO - [logger.py:63] - Processing: test\168_jpg.rf.2fd8d8f97235f848f5c8f27b072321ee.jpg
+2025-10-02 20:01:56 - digital_ocr - INFO - [logger.py:63] - Detected: 11981204. (confidence: 0.801)
+2025-10-02 20:01:56 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_168_jpg.rf.2fd8d8f97235f848f5c8f27b072321ee.jpg
+2025-10-02 20:01:56 - digital_ocr - INFO - [logger.py:63] - Processing: test\16_22_jpg.rf.d40a8bb3085c35fcf1180f7dc3e42c22.jpg
+2025-10-02 20:01:56 - digital_ocr - INFO - [logger.py:63] - Detected: 1622 (confidence: 0.937)
+2025-10-02 20:01:56 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_16_22_jpg.rf.d40a8bb3085c35fcf1180f7dc3e42c22.jpg
+2025-10-02 20:01:56 - digital_ocr - INFO - [logger.py:63] - Processing: test\16_jpg.rf.b4209ed555bae95eb0c86087c2aa09c8.jpg
+2025-10-02 20:01:56 - digital_ocr - INFO - [logger.py:63] - Detected: 166837 (confidence: 0.763)
+2025-10-02 20:01:56 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_16_jpg.rf.b4209ed555bae95eb0c86087c2aa09c8.jpg
+2025-10-02 20:01:56 - digital_ocr - INFO - [logger.py:63] - Processing: test\19_00_jpg.rf.b3aef09b2a5e3ff41581b0f98c52a988.jpg
+2025-10-02 20:01:56 - digital_ocr - INFO - [logger.py:63] - Detected: 1900 (confidence: 0.949)
+2025-10-02 20:01:56 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_19_00_jpg.rf.b3aef09b2a5e3ff41581b0f98c52a988.jpg
+2025-10-02 20:01:56 - digital_ocr - INFO - [logger.py:63] - Processing: test\19_40_jpg.rf.b6b376c4e33b92dee3643f962f4dae36.jpg
+2025-10-02 20:01:56 - digital_ocr - INFO - [logger.py:63] - Detected: 1940 (confidence: 0.946)
+2025-10-02 20:01:56 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_19_40_jpg.rf.b6b376c4e33b92dee3643f962f4dae36.jpg
+2025-10-02 20:01:56 - digital_ocr - INFO - [logger.py:63] - Processing: test\19_45_jpg.rf.35fcb6e5432079566b26544dd808ec16.jpg
+2025-10-02 20:01:56 - digital_ocr - INFO - [logger.py:63] - Detected: 1945 (confidence: 0.942)
+2025-10-02 20:01:56 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_19_45_jpg.rf.35fcb6e5432079566b26544dd808ec16.jpg
+2025-10-02 20:01:56 - digital_ocr - INFO - [logger.py:63] - Processing: test\19_jpg.rf.67a790fdee79eec7d8dc19b3ea90c93d.jpg
+2025-10-02 20:01:56 - digital_ocr - INFO - [logger.py:63] - Detected: 3:62:48 (confidence: 0.836)
+2025-10-02 20:01:56 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_19_jpg.rf.67a790fdee79eec7d8dc19b3ea90c93d.jpg
+2025-10-02 20:01:56 - digital_ocr - INFO - [logger.py:63] - Processing: test\20221104_003115_jpg.rf.7888ce43deca8e71aed9a82251fffa62.jpg
+2025-10-02 20:01:56 - digital_ocr - INFO - [logger.py:63] - Detected: 1391 (confidence: 0.525)
+2025-10-02 20:01:56 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_20221104_003115_jpg.rf.7888ce43deca8e71aed9a82251fffa62.jpg
+2025-10-02 20:01:56 - digital_ocr - INFO - [logger.py:63] - Processing: test\20221104_003124_jpg.rf.80e8a15afea73396916c202764b7cc9e.jpg
+2025-10-02 20:01:56 - digital_ocr - INFO - [logger.py:63] - Detected: 139919: (confidence: 0.518)
+2025-10-02 20:01:56 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_20221104_003124_jpg.rf.80e8a15afea73396916c202764b7cc9e.jpg
+2025-10-02 20:01:56 - digital_ocr - INFO - [logger.py:63] - Processing: test\20221104_003138-0-_jpg.rf.1f254e572654098b244a22290bba93a8.jpg
+2025-10-02 20:01:56 - digital_ocr - INFO - [logger.py:63] - Detected: 13919: (confidence: 0.736)
+2025-10-02 20:01:56 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_20221104_003138-0-_jpg.rf.1f254e572654098b244a22290bba93a8.jpg
+2025-10-02 20:01:56 - digital_ocr - INFO - [logger.py:63] - Processing: test\20221104_003138-0-_jpg.rf.79992f56be3e93385fd5f4a266f700ef.jpg
+2025-10-02 20:01:56 - digital_ocr - INFO - [logger.py:63] - Detected: 13919: (confidence: 0.742)
+2025-10-02 20:01:56 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_20221104_003138-0-_jpg.rf.79992f56be3e93385fd5f4a266f700ef.jpg
+2025-10-02 20:01:56 - digital_ocr - INFO - [logger.py:63] - Processing: test\20221104_003233_jpg.rf.169d6c31ff16f57d5fd4ff15147117d3.jpg
+2025-10-02 20:01:56 - digital_ocr - INFO - [logger.py:63] - Detected: 1675368 (confidence: 0.536)
+2025-10-02 20:01:56 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_20221104_003233_jpg.rf.169d6c31ff16f57d5fd4ff15147117d3.jpg
+2025-10-02 20:01:56 - digital_ocr - INFO - [logger.py:63] - Processing: test\20221104_003236_jpg.rf.1891cf56c830251f15236a2af9dc6431.jpg
+2025-10-02 20:01:57 - digital_ocr - INFO - [logger.py:63] - Detected: 1636 (confidence: 0.306)
+2025-10-02 20:01:57 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_20221104_003236_jpg.rf.1891cf56c830251f15236a2af9dc6431.jpg
+2025-10-02 20:01:57 - digital_ocr - INFO - [logger.py:63] - Processing: test\20221104_003236_jpg.rf.2e4cbc6c4dd284a7a66f6c90f5fbd7e4.jpg
+2025-10-02 20:01:57 - digital_ocr - INFO - [logger.py:63] - Detected: 1368 (confidence: 0.444)
+2025-10-02 20:01:57 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_20221104_003236_jpg.rf.2e4cbc6c4dd284a7a66f6c90f5fbd7e4.jpg
+2025-10-02 20:01:57 - digital_ocr - INFO - [logger.py:63] - Processing: test\20221104_003238-0-_jpg.rf.c28d3c251e49a5cdac37f2e5351014f7.jpg
+2025-10-02 20:01:57 - digital_ocr - INFO - [logger.py:63] - Detected: 1636 (confidence: 0.407)
+2025-10-02 20:01:57 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_20221104_003238-0-_jpg.rf.c28d3c251e49a5cdac37f2e5351014f7.jpg
+2025-10-02 20:01:57 - digital_ocr - INFO - [logger.py:63] - Processing: test\20221104_003241_jpg.rf.44c766b1a0d84a92293a4115cde513a2.jpg
+2025-10-02 20:01:57 - digital_ocr - INFO - [logger.py:63] - Detected: 1999 (confidence: 0.378)
+2025-10-02 20:01:57 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_20221104_003241_jpg.rf.44c766b1a0d84a92293a4115cde513a2.jpg
+2025-10-02 20:01:57 - digital_ocr - INFO - [logger.py:63] - Processing: test\20221104_003257_jpg.rf.e299d96ff70e92244ac6c6e15cb60c96.jpg
+2025-10-02 20:01:57 - digital_ocr - INFO - [logger.py:63] - Detected: 15368 (confidence: 0.597)
+2025-10-02 20:01:57 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_20221104_003257_jpg.rf.e299d96ff70e92244ac6c6e15cb60c96.jpg
+2025-10-02 20:01:57 - digital_ocr - INFO - [logger.py:63] - Processing: test\20221118_121300_jpg.rf.44d330abe2ca46d744a7b3b88638ff69.jpg
+2025-10-02 20:01:57 - digital_ocr - INFO - [logger.py:63] - Detected: 139349 (confidence: 0.715)
+2025-10-02 20:01:57 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_20221118_121300_jpg.rf.44d330abe2ca46d744a7b3b88638ff69.jpg
+2025-10-02 20:01:57 - digital_ocr - INFO - [logger.py:63] - Processing: test\20221118_121300_jpg.rf.7d1299f25515f82c58741d4656ffa6f7.jpg
+2025-10-02 20:01:57 - digital_ocr - INFO - [logger.py:63] - Detected: 139349 (confidence: 0.711)
+2025-10-02 20:01:57 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_20221118_121300_jpg.rf.7d1299f25515f82c58741d4656ffa6f7.jpg
+2025-10-02 20:01:57 - digital_ocr - INFO - [logger.py:63] - Processing: test\20221118_121309_jpg.rf.a39ee292d82b273b06276dd565a4eca5.jpg
+2025-10-02 20:01:57 - digital_ocr - INFO - [logger.py:63] - Detected: 1665:9 (confidence: 0.690)
+2025-10-02 20:01:57 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_20221118_121309_jpg.rf.a39ee292d82b273b06276dd565a4eca5.jpg
+2025-10-02 20:01:57 - digital_ocr - INFO - [logger.py:63] - Processing: test\20221118_121311-0-_jpg.rf.62ea7160933c933cb555fc18830078e9.jpg
+2025-10-02 20:01:57 - digital_ocr - INFO - [logger.py:63] - Detected: 1665:9 (confidence: 0.781)
+2025-10-02 20:01:57 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_20221118_121311-0-_jpg.rf.62ea7160933c933cb555fc18830078e9.jpg
+2025-10-02 20:01:57 - digital_ocr - INFO - [logger.py:63] - Processing: test\20221118_121311_jpg.rf.bb330cd0d7827a0cb8c8e0bdbbd50edd.jpg
+2025-10-02 20:01:57 - digital_ocr - INFO - [logger.py:63] - Detected: 1665:9 (confidence: 0.774)
+2025-10-02 20:01:57 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_20221118_121311_jpg.rf.bb330cd0d7827a0cb8c8e0bdbbd50edd.jpg
+2025-10-02 20:01:57 - digital_ocr - INFO - [logger.py:63] - Processing: test\20221118_121315_jpg.rf.b1e63a763b448c1d3b29546e851d5d5e.jpg
+2025-10-02 20:01:57 - digital_ocr - INFO - [logger.py:63] - Detected: 168:57 (confidence: 0.789)
+2025-10-02 20:01:57 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_20221118_121315_jpg.rf.b1e63a763b448c1d3b29546e851d5d5e.jpg
+2025-10-02 20:01:57 - digital_ocr - INFO - [logger.py:63] - Processing: test\20221118_121315_jpg.rf.c21de87760f1f21c0b87e15ad3897ac6.jpg
+2025-10-02 20:01:57 - digital_ocr - INFO - [logger.py:63] - Detected: 168:57 (confidence: 0.784)
+2025-10-02 20:01:57 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_20221118_121315_jpg.rf.c21de87760f1f21c0b87e15ad3897ac6.jpg
+2025-10-02 20:01:57 - digital_ocr - INFO - [logger.py:63] - Processing: test\20221118_121316_jpg.rf.6297632f847544c45892e3e934a4bb0e.jpg
+2025-10-02 20:01:57 - digital_ocr - INFO - [logger.py:63] - Detected: 168:57 (confidence: 0.714)
+2025-10-02 20:01:57 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_20221118_121316_jpg.rf.6297632f847544c45892e3e934a4bb0e.jpg
+2025-10-02 20:01:57 - digital_ocr - INFO - [logger.py:63] - Processing: test\20221118_121316_jpg.rf.e3876e4bf8dad4d6c0c17b2671a4f55b.jpg
+2025-10-02 20:01:57 - digital_ocr - INFO - [logger.py:63] - Detected: 168:57 (confidence: 0.724)
+2025-10-02 20:01:57 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_20221118_121316_jpg.rf.e3876e4bf8dad4d6c0c17b2671a4f55b.jpg
+2025-10-02 20:01:57 - digital_ocr - INFO - [logger.py:63] - Processing: test\20221118_121319_jpg.rf.f022cfa5b32eebb12f4b4bb9b7fceb8c.jpg
+2025-10-02 20:01:57 - digital_ocr - INFO - [logger.py:63] - Detected: 168:57 (confidence: 0.784)
+2025-10-02 20:01:57 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_20221118_121319_jpg.rf.f022cfa5b32eebb12f4b4bb9b7fceb8c.jpg
+2025-10-02 20:01:57 - digital_ocr - INFO - [logger.py:63] - Processing: test\20221118_121442-0-_jpg.rf.9b938fa171cff980214c6e1fcfd9d5e9.jpg
+2025-10-02 20:01:57 - digital_ocr - INFO - [logger.py:63] - Detected: 127962 (confidence: 0.777)
+2025-10-02 20:01:57 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_20221118_121442-0-_jpg.rf.9b938fa171cff980214c6e1fcfd9d5e9.jpg
+2025-10-02 20:01:57 - digital_ocr - INFO - [logger.py:63] - Processing: test\20221118_122032-0-_jpg.rf.95901f1bd78925d80f60e93c34308593.jpg
+2025-10-02 20:01:57 - digital_ocr - INFO - [logger.py:63] - Detected: 15:68: (confidence: 0.701)
+2025-10-02 20:01:57 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_20221118_122032-0-_jpg.rf.95901f1bd78925d80f60e93c34308593.jpg
+2025-10-02 20:01:57 - digital_ocr - INFO - [logger.py:63] - Processing: test\20_88_jpg.rf.ab1e3c2c578e10708cd7fcecc82198ef.jpg
+2025-10-02 20:01:57 - digital_ocr - INFO - [logger.py:63] - Detected: 2088 (confidence: 0.927)
+2025-10-02 20:01:57 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_20_88_jpg.rf.ab1e3c2c578e10708cd7fcecc82198ef.jpg
+2025-10-02 20:01:57 - digital_ocr - INFO - [logger.py:63] - Processing: test\21_52_jpg.rf.fd9415f5f5015b3ea59298c5cb64c2ad.jpg
+2025-10-02 20:01:57 - digital_ocr - INFO - [logger.py:63] - Detected: 2152 (confidence: 0.925)
+2025-10-02 20:01:57 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_21_52_jpg.rf.fd9415f5f5015b3ea59298c5cb64c2ad.jpg
+2025-10-02 20:01:57 - digital_ocr - INFO - [logger.py:63] - Processing: test\22_89_jpg.rf.63d906b6fa357d01fde7ec7612822d4b.jpg
+2025-10-02 20:01:57 - digital_ocr - INFO - [logger.py:63] - Detected: 2289 (confidence: 0.927)
+2025-10-02 20:01:57 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_22_89_jpg.rf.63d906b6fa357d01fde7ec7612822d4b.jpg
+2025-10-02 20:01:57 - digital_ocr - INFO - [logger.py:63] - Processing: test\28_09_jpg.rf.5063bc006f4609798aed1a58f37830eb.jpg
+2025-10-02 20:01:57 - digital_ocr - INFO - [logger.py:63] - Detected: 2809 (confidence: 0.932)
+2025-10-02 20:01:57 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_28_09_jpg.rf.5063bc006f4609798aed1a58f37830eb.jpg
+2025-10-02 20:01:57 - digital_ocr - INFO - [logger.py:63] - Processing: test\29_14_jpg.rf.7be4452dc4c9fe83317b2c9f08b1fe01.jpg
+2025-10-02 20:01:57 - digital_ocr - INFO - [logger.py:63] - Detected: 2914 (confidence: 0.929)
+2025-10-02 20:01:57 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_29_14_jpg.rf.7be4452dc4c9fe83317b2c9f08b1fe01.jpg
+2025-10-02 20:01:57 - digital_ocr - INFO - [logger.py:63] - Processing: test\29_37_jpg.rf.d8842d97b42a41ffa2249a31b658cba7.jpg
+2025-10-02 20:01:57 - digital_ocr - INFO - [logger.py:63] - Detected: 2937 (confidence: 0.915)
+2025-10-02 20:01:57 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_29_37_jpg.rf.d8842d97b42a41ffa2249a31b658cba7.jpg
+2025-10-02 20:01:57 - digital_ocr - INFO - [logger.py:63] - Processing: test\30_15_jpg.rf.39b49e524cd3721cc8d9158ddbdc86bc.jpg
+2025-10-02 20:01:57 - digital_ocr - INFO - [logger.py:63] - Detected: 3015 (confidence: 0.924)
+2025-10-02 20:01:57 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_30_15_jpg.rf.39b49e524cd3721cc8d9158ddbdc86bc.jpg
+2025-10-02 20:01:57 - digital_ocr - INFO - [logger.py:63] - Processing: test\30_19_jpg.rf.101a2e775a67c50254d3c8b8321cfbf5.jpg
+2025-10-02 20:01:57 - digital_ocr - INFO - [logger.py:63] - Detected: 3019 (confidence: 0.930)
+2025-10-02 20:01:57 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_30_19_jpg.rf.101a2e775a67c50254d3c8b8321cfbf5.jpg
+2025-10-02 20:01:57 - digital_ocr - INFO - [logger.py:63] - Processing: test\30_45_jpg.rf.01cb826a916dfe5c64d597bf8915623d.jpg
+2025-10-02 20:01:57 - digital_ocr - INFO - [logger.py:63] - Detected: 3045 (confidence: 0.923)
+2025-10-02 20:01:57 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_30_45_jpg.rf.01cb826a916dfe5c64d597bf8915623d.jpg
+2025-10-02 20:01:57 - digital_ocr - INFO - [logger.py:63] - Processing: test\32_01_jpg.rf.4f1e9ac54093d7546058fcc359a9149b.jpg
+2025-10-02 20:01:57 - digital_ocr - INFO - [logger.py:63] - Detected: 3201 (confidence: 0.931)
+2025-10-02 20:01:57 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_32_01_jpg.rf.4f1e9ac54093d7546058fcc359a9149b.jpg
+2025-10-02 20:01:57 - digital_ocr - INFO - [logger.py:63] - Processing: test\344257d2-9ba4-443e-9bfe-c52ef505f916_jpg.rf.90edea0a55b1490904e53d4cbe27af21.jpg
+2025-10-02 20:01:57 - digital_ocr - INFO - [logger.py:63] - Detected: 0275 (confidence: 0.762)
+2025-10-02 20:01:57 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_344257d2-9ba4-443e-9bfe-c52ef505f916_jpg.rf.90edea0a55b1490904e53d4cbe27af21.jpg
+2025-10-02 20:01:57 - digital_ocr - INFO - [logger.py:63] - Processing: test\34_07_jpg.rf.803070c5f458ab2a4f55ff1064a2a113.jpg
+2025-10-02 20:01:57 - digital_ocr - INFO - [logger.py:63] - Detected: 3407 (confidence: 0.933)
+2025-10-02 20:01:57 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_34_07_jpg.rf.803070c5f458ab2a4f55ff1064a2a113.jpg
+2025-10-02 20:01:57 - digital_ocr - INFO - [logger.py:63] - Processing: test\34_65_jpg.rf.296be2d8df79f40c0ac76c7f650c9655.jpg
+2025-10-02 20:01:57 - digital_ocr - INFO - [logger.py:63] - Detected: 3465 (confidence: 0.920)
+2025-10-02 20:01:57 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_34_65_jpg.rf.296be2d8df79f40c0ac76c7f650c9655.jpg
+2025-10-02 20:01:57 - digital_ocr - INFO - [logger.py:63] - Processing: test\35_75_jpg.rf.54f2b308333d93a86a972c1a5106906c.jpg
+2025-10-02 20:01:57 - digital_ocr - INFO - [logger.py:63] - Detected: 3575 (confidence: 0.923)
+2025-10-02 20:01:57 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_35_75_jpg.rf.54f2b308333d93a86a972c1a5106906c.jpg
+2025-10-02 20:01:57 - digital_ocr - INFO - [logger.py:63] - Processing: test\36_22_jpg.rf.e63002d8fb6b90a3e224c2e643939bde.jpg
+2025-10-02 20:01:57 - digital_ocr - INFO - [logger.py:63] - Detected: 3622 (confidence: 0.922)
+2025-10-02 20:01:57 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_36_22_jpg.rf.e63002d8fb6b90a3e224c2e643939bde.jpg
+2025-10-02 20:01:57 - digital_ocr - INFO - [logger.py:63] - Processing: test\37_11_jpg.rf.c90b4ffa18df2539e9a483b36f43e95a.jpg
+2025-10-02 20:01:57 - digital_ocr - INFO - [logger.py:63] - Detected: 3711 (confidence: 0.942)
+2025-10-02 20:01:57 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_37_11_jpg.rf.c90b4ffa18df2539e9a483b36f43e95a.jpg
+2025-10-02 20:01:57 - digital_ocr - INFO - [logger.py:63] - Processing: test\38_06_jpg.rf.ed7c1dcaead21db9aecde73eccaf9d9b.jpg
+2025-10-02 20:01:57 - digital_ocr - INFO - [logger.py:63] - Detected: 3806 (confidence: 0.931)
+2025-10-02 20:01:57 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_38_06_jpg.rf.ed7c1dcaead21db9aecde73eccaf9d9b.jpg
+2025-10-02 20:01:57 - digital_ocr - INFO - [logger.py:63] - Processing: test\41_38_jpg.rf.87024d92e8065217f5c0ce9676de1fff.jpg
+2025-10-02 20:01:58 - digital_ocr - INFO - [logger.py:63] - Detected: 4138 (confidence: 0.940)
+2025-10-02 20:01:58 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_41_38_jpg.rf.87024d92e8065217f5c0ce9676de1fff.jpg
+2025-10-02 20:01:58 - digital_ocr - INFO - [logger.py:63] - Processing: test\41_65_jpg.rf.f8d2b9c375620d321dc9d56118b26935.jpg
+2025-10-02 20:01:58 - digital_ocr - INFO - [logger.py:63] - Detected: 4165 (confidence: 0.937)
+2025-10-02 20:01:58 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_41_65_jpg.rf.f8d2b9c375620d321dc9d56118b26935.jpg
+2025-10-02 20:01:58 - digital_ocr - INFO - [logger.py:63] - Processing: test\43_73_jpg.rf.ef52fffeddf21e9e05934255f4f2af54.jpg
+2025-10-02 20:01:58 - digital_ocr - INFO - [logger.py:63] - Detected: 4373 (confidence: 0.926)
+2025-10-02 20:01:58 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_43_73_jpg.rf.ef52fffeddf21e9e05934255f4f2af54.jpg
+2025-10-02 20:01:58 - digital_ocr - INFO - [logger.py:63] - Processing: test\45_86_jpg.rf.27b098dd703175a1097b6639df2cf58b.jpg
+2025-10-02 20:01:58 - digital_ocr - INFO - [logger.py:63] - Detected: 4586 (confidence: 0.937)
+2025-10-02 20:01:58 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_45_86_jpg.rf.27b098dd703175a1097b6639df2cf58b.jpg
+2025-10-02 20:01:58 - digital_ocr - INFO - [logger.py:63] - Processing: test\45_91_jpg.rf.e10e7c18a7fa2c2bc177baf3a39989c7.jpg
+2025-10-02 20:01:58 - digital_ocr - INFO - [logger.py:63] - Detected: 4591 (confidence: 0.944)
+2025-10-02 20:01:58 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_45_91_jpg.rf.e10e7c18a7fa2c2bc177baf3a39989c7.jpg
+2025-10-02 20:01:58 - digital_ocr - INFO - [logger.py:63] - Processing: test\46_43_jpg.rf.c8329a828c8e8aadd733005cdf061ed9.jpg
+2025-10-02 20:01:58 - digital_ocr - INFO - [logger.py:63] - Detected: 4643 (confidence: 0.934)
+2025-10-02 20:01:58 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_46_43_jpg.rf.c8329a828c8e8aadd733005cdf061ed9.jpg
+2025-10-02 20:01:58 - digital_ocr - INFO - [logger.py:63] - Processing: test\47_38_jpg.rf.d310e4d17f3a6457fdc9073a998b9935.jpg
+2025-10-02 20:01:58 - digital_ocr - INFO - [logger.py:63] - Detected: 4738 (confidence: 0.943)
+2025-10-02 20:01:58 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_47_38_jpg.rf.d310e4d17f3a6457fdc9073a998b9935.jpg
+2025-10-02 20:01:58 - digital_ocr - INFO - [logger.py:63] - Processing: test\47_81_jpg.rf.8c3564aca1429e82fd5657f693047e9c.jpg
+2025-10-02 20:01:58 - digital_ocr - INFO - [logger.py:63] - Detected: 4781 (confidence: 0.955)
+2025-10-02 20:01:58 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_47_81_jpg.rf.8c3564aca1429e82fd5657f693047e9c.jpg
+2025-10-02 20:01:58 - digital_ocr - INFO - [logger.py:63] - Processing: test\49_58_jpg.rf.9f3579b53f87b65cfee22b4abe6634a7.jpg
+2025-10-02 20:01:58 - digital_ocr - INFO - [logger.py:63] - Detected: 4958 (confidence: 0.943)
+2025-10-02 20:01:58 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_49_58_jpg.rf.9f3579b53f87b65cfee22b4abe6634a7.jpg
+2025-10-02 20:01:58 - digital_ocr - INFO - [logger.py:63] - Processing: test\4d3fa95c-4675-453e-aed9-2f2f248c5d97_jpg.rf.9ba340a574b581824463bfe58854a937.jpg
+2025-10-02 20:01:58 - digital_ocr - INFO - [logger.py:63] - Detected: 3275403 (confidence: 0.748)
+2025-10-02 20:01:58 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_4d3fa95c-4675-453e-aed9-2f2f248c5d97_jpg.rf.9ba340a574b581824463bfe58854a937.jpg
+2025-10-02 20:01:58 - digital_ocr - INFO - [logger.py:63] - Processing: test\4ffe6abb-0be6-446c-a2ed-991c6eb298af_jpg.rf.0eb8eede5da24d9aca1f29f011029139.jpg
+2025-10-02 20:01:58 - digital_ocr - INFO - [logger.py:63] - Detected: 6:8504. (confidence: 0.877)
+2025-10-02 20:01:58 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_4ffe6abb-0be6-446c-a2ed-991c6eb298af_jpg.rf.0eb8eede5da24d9aca1f29f011029139.jpg
+2025-10-02 20:01:58 - digital_ocr - INFO - [logger.py:63] - Processing: test\4_JPG.rf.d41d11a3fa81abd6782ff2ff2a12262d.jpg
+2025-10-02 20:01:58 - digital_ocr - INFO - [logger.py:63] - Detected: 81250.2 (confidence: 0.762)
+2025-10-02 20:01:58 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_4_JPG.rf.d41d11a3fa81abd6782ff2ff2a12262d.jpg
+2025-10-02 20:01:58 - digital_ocr - INFO - [logger.py:63] - Processing: test\50_66_jpg.rf.df7f69a6967757888df8cce14ceeedf4.jpg
+2025-10-02 20:01:58 - digital_ocr - INFO - [logger.py:63] - Detected: 5066 (confidence: 0.928)
+2025-10-02 20:01:58 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_50_66_jpg.rf.df7f69a6967757888df8cce14ceeedf4.jpg
+2025-10-02 20:01:58 - digital_ocr - INFO - [logger.py:63] - Processing: test\52_71_jpg.rf.1b78a02456fd0e663fb11887613032a9.jpg
+2025-10-02 20:01:58 - digital_ocr - INFO - [logger.py:63] - Detected: 5271 (confidence: 0.948)
+2025-10-02 20:01:58 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_52_71_jpg.rf.1b78a02456fd0e663fb11887613032a9.jpg
+2025-10-02 20:01:58 - digital_ocr - INFO - [logger.py:63] - Processing: test\53_14_jpg.rf.bba9e48f7a214a32dbe3b3a0476f680c.jpg
+2025-10-02 20:01:58 - digital_ocr - INFO - [logger.py:63] - Detected: 5314 (confidence: 0.936)
+2025-10-02 20:01:58 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_53_14_jpg.rf.bba9e48f7a214a32dbe3b3a0476f680c.jpg
+2025-10-02 20:01:58 - digital_ocr - INFO - [logger.py:63] - Processing: test\53_45_jpg.rf.321236614be3924558cda8afd6d3c0ff.jpg
+2025-10-02 20:01:58 - digital_ocr - INFO - [logger.py:63] - Detected: 5345 (confidence: 0.924)
+2025-10-02 20:01:58 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_53_45_jpg.rf.321236614be3924558cda8afd6d3c0ff.jpg
+2025-10-02 20:01:58 - digital_ocr - INFO - [logger.py:63] - Processing: test\549de2e2-3ad5-4676-a554-f0a11de8b6d4_jpg.rf.bd683b4a995b21608b0f3ae8c852efa0.jpg
+2025-10-02 20:01:58 - digital_ocr - INFO - [logger.py:63] - Detected: 362:0:. (confidence: 0.734)
+2025-10-02 20:01:58 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_549de2e2-3ad5-4676-a554-f0a11de8b6d4_jpg.rf.bd683b4a995b21608b0f3ae8c852efa0.jpg
+2025-10-02 20:01:58 - digital_ocr - INFO - [logger.py:63] - Processing: test\54_16_jpg.rf.e8e662d2da17e80bda6e47b81a5c71d0.jpg
+2025-10-02 20:01:58 - digital_ocr - INFO - [logger.py:63] - Detected: 5416 (confidence: 0.938)
+2025-10-02 20:01:58 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_54_16_jpg.rf.e8e662d2da17e80bda6e47b81a5c71d0.jpg
+2025-10-02 20:01:58 - digital_ocr - INFO - [logger.py:63] - Processing: test\55_86_jpg.rf.eb439120c4ae338d44b2d016f6a64d28.jpg
+2025-10-02 20:01:58 - digital_ocr - INFO - [logger.py:63] - Detected: 5586 (confidence: 0.934)
+2025-10-02 20:01:58 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_55_86_jpg.rf.eb439120c4ae338d44b2d016f6a64d28.jpg
+2025-10-02 20:01:58 - digital_ocr - INFO - [logger.py:63] - Processing: test\56_91_jpg.rf.29cf718781a499a37c6777167059d196.jpg
+2025-10-02 20:01:58 - digital_ocr - INFO - [logger.py:63] - Detected: 5691 (confidence: 0.941)
+2025-10-02 20:01:58 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_56_91_jpg.rf.29cf718781a499a37c6777167059d196.jpg
+2025-10-02 20:01:58 - digital_ocr - INFO - [logger.py:63] - Processing: test\58_73_jpg.rf.9e08ba2efa10bc10cc69bb71ac9d4f11.jpg
+2025-10-02 20:01:58 - digital_ocr - INFO - [logger.py:63] - Detected: 5873 (confidence: 0.939)
+2025-10-02 20:01:58 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_58_73_jpg.rf.9e08ba2efa10bc10cc69bb71ac9d4f11.jpg
+2025-10-02 20:01:58 - digital_ocr - INFO - [logger.py:63] - Processing: test\5ce65a1f-8a5c-47d8-a150-4a01468bab9a_jpg.rf.f47ad1ece8959392523a9956f19e1623.jpg
+2025-10-02 20:01:58 - digital_ocr - INFO - [logger.py:63] - Detected: 79503. (confidence: 0.824)
+2025-10-02 20:01:58 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_5ce65a1f-8a5c-47d8-a150-4a01468bab9a_jpg.rf.f47ad1ece8959392523a9956f19e1623.jpg
+2025-10-02 20:01:58 - digital_ocr - INFO - [logger.py:63] - Processing: test\60_16_jpg.rf.661153279e6cc082d6cc4c85b6878d99.jpg
+2025-10-02 20:01:58 - digital_ocr - INFO - [logger.py:63] - Detected: 6016 (confidence: 0.928)
+2025-10-02 20:01:58 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_60_16_jpg.rf.661153279e6cc082d6cc4c85b6878d99.jpg
+2025-10-02 20:01:58 - digital_ocr - INFO - [logger.py:63] - Processing: test\60_20_jpg.rf.466083d70bc31fb4c7c93b5ad138bb51.jpg
+2025-10-02 20:01:58 - digital_ocr - INFO - [logger.py:63] - Detected: 6020 (confidence: 0.936)
+2025-10-02 20:01:58 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_60_20_jpg.rf.466083d70bc31fb4c7c93b5ad138bb51.jpg
+2025-10-02 20:01:58 - digital_ocr - INFO - [logger.py:63] - Processing: test\60_88_jpg.rf.da06e93347a8c3d6febae7c9f0a29cf1.jpg
+2025-10-02 20:01:58 - digital_ocr - INFO - [logger.py:63] - Detected: 6088 (confidence: 0.944)
+2025-10-02 20:01:58 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_60_88_jpg.rf.da06e93347a8c3d6febae7c9f0a29cf1.jpg
+2025-10-02 20:01:58 - digital_ocr - INFO - [logger.py:63] - Processing: test\61_06_jpg.rf.7cf86789df4c414765cfd723778a0858.jpg
+2025-10-02 20:01:58 - digital_ocr - INFO - [logger.py:63] - Detected: 6106 (confidence: 0.931)
+2025-10-02 20:01:58 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_61_06_jpg.rf.7cf86789df4c414765cfd723778a0858.jpg
+2025-10-02 20:01:58 - digital_ocr - INFO - [logger.py:63] - Processing: test\61_07_jpg.rf.4fe94dd21fa8809f2fe02b0628c3e3a9.jpg
+2025-10-02 20:01:58 - digital_ocr - INFO - [logger.py:63] - Detected: 6107 (confidence: 0.943)
+2025-10-02 20:01:58 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_61_07_jpg.rf.4fe94dd21fa8809f2fe02b0628c3e3a9.jpg
+2025-10-02 20:01:58 - digital_ocr - INFO - [logger.py:63] - Processing: test\61_29_jpg.rf.bf0ffbf83a71362799e4df188fa0cd54.jpg
+2025-10-02 20:01:58 - digital_ocr - INFO - [logger.py:63] - Detected: 6129 (confidence: 0.945)
+2025-10-02 20:01:58 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_61_29_jpg.rf.bf0ffbf83a71362799e4df188fa0cd54.jpg
+2025-10-02 20:01:58 - digital_ocr - INFO - [logger.py:63] - Processing: test\62_20_jpg.rf.ac10fde125f28a86712aeae14c74d571.jpg
+2025-10-02 20:01:58 - digital_ocr - INFO - [logger.py:63] - Detected: 6220 (confidence: 0.938)
+2025-10-02 20:01:58 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_62_20_jpg.rf.ac10fde125f28a86712aeae14c74d571.jpg
+2025-10-02 20:01:58 - digital_ocr - INFO - [logger.py:63] - Processing: test\6391438c-99cb-4f4d-bd58-d3b2a8e0a0a3_jpg.rf.07bbc7b122cf26cd097e78e1d893b064.jpg
+2025-10-02 20:01:58 - digital_ocr - INFO - [logger.py:63] - Detected: 14776301. (confidence: 0.819)
+2025-10-02 20:01:58 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_6391438c-99cb-4f4d-bd58-d3b2a8e0a0a3_jpg.rf.07bbc7b122cf26cd097e78e1d893b064.jpg
+2025-10-02 20:01:58 - digital_ocr - INFO - [logger.py:63] - Processing: test\63_41_jpg.rf.5cf071e94fe7f01d1a28d7c0438c1ccc.jpg
+2025-10-02 20:01:59 - digital_ocr - INFO - [logger.py:63] - Detected: 6341 (confidence: 0.931)
+2025-10-02 20:01:59 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_63_41_jpg.rf.5cf071e94fe7f01d1a28d7c0438c1ccc.jpg
+2025-10-02 20:01:59 - digital_ocr - INFO - [logger.py:63] - Processing: test\64_08_jpg.rf.6f5427fa7e866211c86f836f9bb6c8cf.jpg
+2025-10-02 20:01:59 - digital_ocr - INFO - [logger.py:63] - Detected: 6408 (confidence: 0.940)
+2025-10-02 20:01:59 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_64_08_jpg.rf.6f5427fa7e866211c86f836f9bb6c8cf.jpg
+2025-10-02 20:01:59 - digital_ocr - INFO - [logger.py:63] - Processing: test\64_92_jpg.rf.5eb57d42a1a7c33dcfbf191307acfbeb.jpg
+2025-10-02 20:01:59 - digital_ocr - INFO - [logger.py:63] - Detected: 6492 (confidence: 0.934)
+2025-10-02 20:01:59 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_64_92_jpg.rf.5eb57d42a1a7c33dcfbf191307acfbeb.jpg
+2025-10-02 20:01:59 - digital_ocr - INFO - [logger.py:63] - Processing: test\65_38_jpg.rf.7a1f6ad92031572029a5485121d9914a.jpg
+2025-10-02 20:01:59 - digital_ocr - INFO - [logger.py:63] - Detected: 6538 (confidence: 0.923)
+2025-10-02 20:01:59 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_65_38_jpg.rf.7a1f6ad92031572029a5485121d9914a.jpg
+2025-10-02 20:01:59 - digital_ocr - INFO - [logger.py:63] - Processing: test\65_89_jpg.rf.5121795fd1cfcfa5b2b8b4fd1471b8c4.jpg
+2025-10-02 20:01:59 - digital_ocr - INFO - [logger.py:63] - Detected: 6589 (confidence: 0.942)
+2025-10-02 20:01:59 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_65_89_jpg.rf.5121795fd1cfcfa5b2b8b4fd1471b8c4.jpg
+2025-10-02 20:01:59 - digital_ocr - INFO - [logger.py:63] - Processing: test\66_13_jpg.rf.0f222596cd4780130eaf91fcc0f6aa85.jpg
+2025-10-02 20:01:59 - digital_ocr - INFO - [logger.py:63] - Detected: 6613 (confidence: 0.926)
+2025-10-02 20:01:59 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_66_13_jpg.rf.0f222596cd4780130eaf91fcc0f6aa85.jpg
+2025-10-02 20:01:59 - digital_ocr - INFO - [logger.py:63] - Processing: test\68bbde8e-b907-476b-ae34-9752b7111e4c_jpg.rf.302afe6f351835a32152c63269e79d05.jpg
+2025-10-02 20:01:59 - digital_ocr - INFO - [logger.py:63] - Detected: 1451207. (confidence: 0.832)
+2025-10-02 20:01:59 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_68bbde8e-b907-476b-ae34-9752b7111e4c_jpg.rf.302afe6f351835a32152c63269e79d05.jpg
+2025-10-02 20:01:59 - digital_ocr - INFO - [logger.py:63] - Processing: test\68_32_jpg.rf.1258257921eab848a57f6b5bcf930a7d.jpg
+2025-10-02 20:01:59 - digital_ocr - INFO - [logger.py:63] - Detected: 6832 (confidence: 0.927)
+2025-10-02 20:01:59 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_68_32_jpg.rf.1258257921eab848a57f6b5bcf930a7d.jpg
+2025-10-02 20:01:59 - digital_ocr - INFO - [logger.py:63] - Processing: test\68_44_jpg.rf.d13a4f38e6610d5dd783b9df8d397645.jpg
+2025-10-02 20:01:59 - digital_ocr - INFO - [logger.py:63] - Detected: 6844 (confidence: 0.952)
+2025-10-02 20:01:59 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_68_44_jpg.rf.d13a4f38e6610d5dd783b9df8d397645.jpg
+2025-10-02 20:01:59 - digital_ocr - INFO - [logger.py:63] - Processing: test\69_69_jpg.rf.66b4e771e0f18319ef41cfdde8aa3b6d.jpg
+2025-10-02 20:01:59 - digital_ocr - INFO - [logger.py:63] - Detected: 6969 (confidence: 0.943)
+2025-10-02 20:01:59 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_69_69_jpg.rf.66b4e771e0f18319ef41cfdde8aa3b6d.jpg
+2025-10-02 20:01:59 - digital_ocr - INFO - [logger.py:63] - Processing: test\6dcd904a-0d39-45f7-b3db-0018481994ed_jpg.rf.aa39e420c83123b5771b65851ee1e449.jpg
+2025-10-02 20:01:59 - digital_ocr - INFO - [logger.py:63] - Detected: 2:3309. (confidence: 0.781)
+2025-10-02 20:01:59 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_6dcd904a-0d39-45f7-b3db-0018481994ed_jpg.rf.aa39e420c83123b5771b65851ee1e449.jpg
+2025-10-02 20:01:59 - digital_ocr - INFO - [logger.py:63] - Processing: test\72e24ae6-5a37-4454-b9e8-6b900701f3dd_jpg.rf.d041d734674006ac5b3d3ece07e32518.jpg
+2025-10-02 20:01:59 - digital_ocr - INFO - [logger.py:63] - Detected: 5:920 (confidence: 0.740)
+2025-10-02 20:01:59 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_72e24ae6-5a37-4454-b9e8-6b900701f3dd_jpg.rf.d041d734674006ac5b3d3ece07e32518.jpg
+2025-10-02 20:01:59 - digital_ocr - INFO - [logger.py:63] - Processing: test\72_43_jpg.rf.65989b8871966617f8ee91278b4df91c.jpg
+2025-10-02 20:01:59 - digital_ocr - INFO - [logger.py:63] - Detected: 7243 (confidence: 0.939)
+2025-10-02 20:01:59 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_72_43_jpg.rf.65989b8871966617f8ee91278b4df91c.jpg
+2025-10-02 20:01:59 - digital_ocr - INFO - [logger.py:63] - Processing: test\72_73_jpg.rf.3b9b5f9d3f12aaeba6f93a1482bce369.jpg
+2025-10-02 20:01:59 - digital_ocr - INFO - [logger.py:63] - Detected: 7273 (confidence: 0.940)
+2025-10-02 20:01:59 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_72_73_jpg.rf.3b9b5f9d3f12aaeba6f93a1482bce369.jpg
+2025-10-02 20:01:59 - digital_ocr - INFO - [logger.py:63] - Processing: test\72_98_jpg.rf.bf88952ad91fa5c7434b85667c24f7cc.jpg
+2025-10-02 20:01:59 - digital_ocr - INFO - [logger.py:63] - Detected: 7298 (confidence: 0.950)
+2025-10-02 20:01:59 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_72_98_jpg.rf.bf88952ad91fa5c7434b85667c24f7cc.jpg
+2025-10-02 20:01:59 - digital_ocr - INFO - [logger.py:63] - Processing: test\734e109e-a84e-4d63-bf4b-93874d84f47f_jpg.rf.e16db9c785c1e27a1b38f8a357b1ecae.jpg
+2025-10-02 20:01:59 - digital_ocr - INFO - [logger.py:63] - Detected: 011317402. (confidence: 0.770)
+2025-10-02 20:01:59 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_734e109e-a84e-4d63-bf4b-93874d84f47f_jpg.rf.e16db9c785c1e27a1b38f8a357b1ecae.jpg
+2025-10-02 20:01:59 - digital_ocr - INFO - [logger.py:63] - Processing: test\73_39_jpg.rf.5f937cb66c9581de73ba66823a88fa20.jpg
+2025-10-02 20:01:59 - digital_ocr - INFO - [logger.py:63] - Detected: 7339 (confidence: 0.924)
+2025-10-02 20:01:59 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_73_39_jpg.rf.5f937cb66c9581de73ba66823a88fa20.jpg
+2025-10-02 20:01:59 - digital_ocr - INFO - [logger.py:63] - Processing: test\74011584-5935-48a2-ae30-c2cfb0b26b1f_jpg.rf.0ea4de1f10fb426f84fd55965b28b958.jpg
+2025-10-02 20:01:59 - digital_ocr - INFO - [logger.py:63] - Detected: 3126079. (confidence: 0.759)
+2025-10-02 20:01:59 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_74011584-5935-48a2-ae30-c2cfb0b26b1f_jpg.rf.0ea4de1f10fb426f84fd55965b28b958.jpg
+2025-10-02 20:01:59 - digital_ocr - INFO - [logger.py:63] - Processing: test\74_22_jpg.rf.58610e56d9d6ce61ca1798319808f571.jpg
+2025-10-02 20:01:59 - digital_ocr - INFO - [logger.py:63] - Detected: 7422 (confidence: 0.949)
+2025-10-02 20:01:59 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_74_22_jpg.rf.58610e56d9d6ce61ca1798319808f571.jpg
+2025-10-02 20:01:59 - digital_ocr - INFO - [logger.py:63] - Processing: test\74_85_jpg.rf.16aef2f0c7b5deff1fb29e8e67c32163.jpg
+2025-10-02 20:01:59 - digital_ocr - INFO - [logger.py:63] - Detected: 7485 (confidence: 0.945)
+2025-10-02 20:01:59 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_74_85_jpg.rf.16aef2f0c7b5deff1fb29e8e67c32163.jpg
+2025-10-02 20:01:59 - digital_ocr - INFO - [logger.py:63] - Processing: test\75_35_jpg.rf.6c339682eda1e37b9af11b5265c94915.jpg
+2025-10-02 20:01:59 - digital_ocr - INFO - [logger.py:63] - Detected: 7535 (confidence: 0.922)
+2025-10-02 20:01:59 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_75_35_jpg.rf.6c339682eda1e37b9af11b5265c94915.jpg
+2025-10-02 20:01:59 - digital_ocr - INFO - [logger.py:63] - Processing: test\76ba42f1-9f31-4106-89bf-9070ab5a5537_jpg.rf.f1429e401af132dd930265efd6b62cf8.jpg
+2025-10-02 20:01:59 - digital_ocr - INFO - [logger.py:63] - Detected: 79501 (confidence: 0.713)
+2025-10-02 20:01:59 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_76ba42f1-9f31-4106-89bf-9070ab5a5537_jpg.rf.f1429e401af132dd930265efd6b62cf8.jpg
+2025-10-02 20:01:59 - digital_ocr - INFO - [logger.py:63] - Processing: test\76_86_jpg.rf.8d8cb5c28345ac0878d3df41ef624f39.jpg
+2025-10-02 20:01:59 - digital_ocr - INFO - [logger.py:63] - Detected: 7686 (confidence: 0.945)
+2025-10-02 20:01:59 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_76_86_jpg.rf.8d8cb5c28345ac0878d3df41ef624f39.jpg
+2025-10-02 20:01:59 - digital_ocr - INFO - [logger.py:63] - Processing: test\77_00_jpg.rf.79aed076d786e78a0e3a4cbfde67fd5a.jpg
+2025-10-02 20:01:59 - digital_ocr - INFO - [logger.py:63] - Detected: 7700 (confidence: 0.955)
+2025-10-02 20:01:59 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_77_00_jpg.rf.79aed076d786e78a0e3a4cbfde67fd5a.jpg
+2025-10-02 20:01:59 - digital_ocr - INFO - [logger.py:63] - Processing: test\77_74_jpg.rf.44667522b82ec5d3b6e41beea985441d.jpg
+2025-10-02 20:01:59 - digital_ocr - INFO - [logger.py:63] - Detected: 7774 (confidence: 0.962)
+2025-10-02 20:01:59 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_77_74_jpg.rf.44667522b82ec5d3b6e41beea985441d.jpg
+2025-10-02 20:01:59 - digital_ocr - INFO - [logger.py:63] - Processing: test\78_06_jpg.rf.bdba96a16e34f73686020ad29c838959.jpg
+2025-10-02 20:01:59 - digital_ocr - INFO - [logger.py:63] - Detected: 7806 (confidence: 0.947)
+2025-10-02 20:01:59 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_78_06_jpg.rf.bdba96a16e34f73686020ad29c838959.jpg
+2025-10-02 20:01:59 - digital_ocr - INFO - [logger.py:63] - Processing: test\78_98_jpg.rf.cbe12ac871632983109064524c532a38.jpg
+2025-10-02 20:01:59 - digital_ocr - INFO - [logger.py:63] - Detected: 7898 (confidence: 0.957)
+2025-10-02 20:01:59 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_78_98_jpg.rf.cbe12ac871632983109064524c532a38.jpg
+2025-10-02 20:01:59 - digital_ocr - INFO - [logger.py:63] - Processing: test\79_01_jpg.rf.806ab7b2761061e6c79e26f94c135110.jpg
+2025-10-02 20:01:59 - digital_ocr - INFO - [logger.py:63] - Detected: 7901 (confidence: 0.949)
+2025-10-02 20:01:59 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_79_01_jpg.rf.806ab7b2761061e6c79e26f94c135110.jpg
+2025-10-02 20:01:59 - digital_ocr - INFO - [logger.py:63] - Processing: test\80_74_jpg.rf.5aae003a725a164e09f5ff31ef4d6896.jpg
+2025-10-02 20:01:59 - digital_ocr - INFO - [logger.py:63] - Detected: 8074 (confidence: 0.952)
+2025-10-02 20:01:59 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_80_74_jpg.rf.5aae003a725a164e09f5ff31ef4d6896.jpg
+2025-10-02 20:01:59 - digital_ocr - INFO - [logger.py:63] - Processing: test\82_72_jpg.rf.f921e80bc082d0ca29f1e5d0cf0be15c.jpg
+2025-10-02 20:01:59 - digital_ocr - INFO - [logger.py:63] - Detected: 8272 (confidence: 0.947)
+2025-10-02 20:01:59 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_82_72_jpg.rf.f921e80bc082d0ca29f1e5d0cf0be15c.jpg
+2025-10-02 20:01:59 - digital_ocr - INFO - [logger.py:63] - Processing: test\83_47_jpg.rf.1b4829dc9b488f546b869b315f4064e1.jpg
+2025-10-02 20:01:59 - digital_ocr - INFO - [logger.py:63] - Detected: 8347 (confidence: 0.941)
+2025-10-02 20:01:59 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_83_47_jpg.rf.1b4829dc9b488f546b869b315f4064e1.jpg
+2025-10-02 20:01:59 - digital_ocr - INFO - [logger.py:63] - Processing: test\83_53_jpg.rf.cf4c1bd233a1a14def1181489e8f5990.jpg
+2025-10-02 20:02:00 - digital_ocr - INFO - [logger.py:63] - Detected: 8353 (confidence: 0.915)
+2025-10-02 20:02:00 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_83_53_jpg.rf.cf4c1bd233a1a14def1181489e8f5990.jpg
+2025-10-02 20:02:00 - digital_ocr - INFO - [logger.py:63] - Processing: test\85_87_jpg.rf.ee70654bc515a816f2a6a2346d669b4d.jpg
+2025-10-02 20:02:00 - digital_ocr - INFO - [logger.py:63] - Detected: 8587 (confidence: 0.949)
+2025-10-02 20:02:00 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_85_87_jpg.rf.ee70654bc515a816f2a6a2346d669b4d.jpg
+2025-10-02 20:02:00 - digital_ocr - INFO - [logger.py:63] - Processing: test\89_08_jpg.rf.32ba3b1c20f73fef573248ef2fb86b91.jpg
+2025-10-02 20:02:00 - digital_ocr - INFO - [logger.py:63] - Detected: 8908 (confidence: 0.954)
+2025-10-02 20:02:00 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_89_08_jpg.rf.32ba3b1c20f73fef573248ef2fb86b91.jpg
+2025-10-02 20:02:00 - digital_ocr - INFO - [logger.py:63] - Processing: test\89_98_jpg.rf.a7d81e6ff9d510ec908d00c9bf1cb1b8.jpg
+2025-10-02 20:02:00 - digital_ocr - INFO - [logger.py:63] - Detected: 8998 (confidence: 0.952)
+2025-10-02 20:02:00 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_89_98_jpg.rf.a7d81e6ff9d510ec908d00c9bf1cb1b8.jpg
+2025-10-02 20:02:00 - digital_ocr - INFO - [logger.py:63] - Processing: test\8f90a7f0-07db-4939-8cc9-3d28d05fc545_jpg.rf.bac08b512a1334297d46bee009af25c2.jpg
+2025-10-02 20:02:00 - digital_ocr - INFO - [logger.py:63] - Detected: 381408. (confidence: 0.840)
+2025-10-02 20:02:00 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_8f90a7f0-07db-4939-8cc9-3d28d05fc545_jpg.rf.bac08b512a1334297d46bee009af25c2.jpg
+2025-10-02 20:02:00 - digital_ocr - INFO - [logger.py:63] - Processing: test\91_11_jpg.rf.ee92282ff6ddca5e27b7f935b5ea7175.jpg
+2025-10-02 20:02:00 - digital_ocr - INFO - [logger.py:63] - Detected: 9111 (confidence: 0.958)
+2025-10-02 20:02:00 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_91_11_jpg.rf.ee92282ff6ddca5e27b7f935b5ea7175.jpg
+2025-10-02 20:02:00 - digital_ocr - INFO - [logger.py:63] - Processing: test\91_26_jpg.rf.458688aa71201d6aa621b9e78274730a.jpg
+2025-10-02 20:02:00 - digital_ocr - INFO - [logger.py:63] - Detected: 9126 (confidence: 0.945)
+2025-10-02 20:02:00 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_91_26_jpg.rf.458688aa71201d6aa621b9e78274730a.jpg
+2025-10-02 20:02:00 - digital_ocr - INFO - [logger.py:63] - Processing: test\91_83_jpg.rf.5fea50643203ee35401053382c768c04.jpg
+2025-10-02 20:02:00 - digital_ocr - INFO - [logger.py:63] - Detected: 9183 (confidence: 0.939)
+2025-10-02 20:02:00 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_91_83_jpg.rf.5fea50643203ee35401053382c768c04.jpg
+2025-10-02 20:02:00 - digital_ocr - INFO - [logger.py:63] - Processing: test\92_47_jpg.rf.803dd349f4b5eadcaae5e059a6253c15.jpg
+2025-10-02 20:02:00 - digital_ocr - INFO - [logger.py:63] - Detected: 9247 (confidence: 0.951)
+2025-10-02 20:02:00 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_92_47_jpg.rf.803dd349f4b5eadcaae5e059a6253c15.jpg
+2025-10-02 20:02:00 - digital_ocr - INFO - [logger.py:63] - Processing: test\93_21_jpg.rf.8a222a8d3490e20dfd8f709082bc1b3d.jpg
+2025-10-02 20:02:00 - digital_ocr - INFO - [logger.py:63] - Detected: 9321 (confidence: 0.935)
+2025-10-02 20:02:00 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_93_21_jpg.rf.8a222a8d3490e20dfd8f709082bc1b3d.jpg
+2025-10-02 20:02:00 - digital_ocr - INFO - [logger.py:63] - Processing: test\94_02_jpg.rf.9ae3a6693ab11a2d875c691be58d8a32.jpg
+2025-10-02 20:02:00 - digital_ocr - INFO - [logger.py:63] - Detected: 9402 (confidence: 0.945)
+2025-10-02 20:02:00 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_94_02_jpg.rf.9ae3a6693ab11a2d875c691be58d8a32.jpg
+2025-10-02 20:02:00 - digital_ocr - INFO - [logger.py:63] - Processing: test\94_91_jpg.rf.33179debd007e823e40a1231c9d6db32.jpg
+2025-10-02 20:02:00 - digital_ocr - INFO - [logger.py:63] - Detected: 9491 (confidence: 0.949)
+2025-10-02 20:02:00 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_94_91_jpg.rf.33179debd007e823e40a1231c9d6db32.jpg
+2025-10-02 20:02:00 - digital_ocr - INFO - [logger.py:63] - Processing: test\95_46_jpg.rf.c0d2ad3b34bcdab2a43bdc13c1ca9703.jpg
+2025-10-02 20:02:00 - digital_ocr - INFO - [logger.py:63] - Detected: 9546 (confidence: 0.939)
+2025-10-02 20:02:00 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_95_46_jpg.rf.c0d2ad3b34bcdab2a43bdc13c1ca9703.jpg
+2025-10-02 20:02:00 - digital_ocr - INFO - [logger.py:63] - Processing: test\96_12_jpg.rf.6a28f453b69394d15ad4b26f479a1672.jpg
+2025-10-02 20:02:00 - digital_ocr - INFO - [logger.py:63] - Detected: 9612 (confidence: 0.943)
+2025-10-02 20:02:00 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_96_12_jpg.rf.6a28f453b69394d15ad4b26f479a1672.jpg
+2025-10-02 20:02:00 - digital_ocr - INFO - [logger.py:63] - Processing: test\98_25_jpg.rf.3b147017fd158dc847fbb7deca19cbf5.jpg
+2025-10-02 20:02:00 - digital_ocr - INFO - [logger.py:63] - Detected: 9825 (confidence: 0.943)
+2025-10-02 20:02:00 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_98_25_jpg.rf.3b147017fd158dc847fbb7deca19cbf5.jpg
+2025-10-02 20:02:00 - digital_ocr - INFO - [logger.py:63] - Processing: test\98_87_jpg.rf.67d25ed76afa68dd821bf5db9cddeece.jpg
+2025-10-02 20:02:00 - digital_ocr - INFO - [logger.py:63] - Detected: 9887 (confidence: 0.958)
+2025-10-02 20:02:00 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_98_87_jpg.rf.67d25ed76afa68dd821bf5db9cddeece.jpg
+2025-10-02 20:02:00 - digital_ocr - INFO - [logger.py:63] - Processing: test\99_66_jpg.rf.ed6bee5b09af4eb331eccce7682450bd.jpg
+2025-10-02 20:02:00 - digital_ocr - INFO - [logger.py:63] - Detected: 9966 (confidence: 0.941)
+2025-10-02 20:02:00 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_99_66_jpg.rf.ed6bee5b09af4eb331eccce7682450bd.jpg
+2025-10-02 20:02:00 - digital_ocr - INFO - [logger.py:63] - Processing: test\99_81_jpg.rf.b9643fb9f2bcbee77f699a118ef2931e.jpg
+2025-10-02 20:02:00 - digital_ocr - INFO - [logger.py:63] - Detected: 9981 (confidence: 0.952)
+2025-10-02 20:02:00 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_99_81_jpg.rf.b9643fb9f2bcbee77f699a118ef2931e.jpg
+2025-10-02 20:02:00 - digital_ocr - INFO - [logger.py:63] - Processing: test\9d0e3467-12bd-4ca9-b4d1-92a343598d16_jpg.rf.f0b6fe130341c7c5abf91262f40da1e0.jpg
+2025-10-02 20:02:00 - digital_ocr - INFO - [logger.py:63] - Detected: 56510: (confidence: 0.865)
+2025-10-02 20:02:00 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_9d0e3467-12bd-4ca9-b4d1-92a343598d16_jpg.rf.f0b6fe130341c7c5abf91262f40da1e0.jpg
+2025-10-02 20:02:00 - digital_ocr - INFO - [logger.py:63] - Processing: test\a960e4f2-c939-43b7-ac97-909a49dba3a0_jpg.rf.a5b1b45c938dbc4b999f81b4f6df2970.jpg
+2025-10-02 20:02:00 - digital_ocr - INFO - [logger.py:63] - Detected: 25:203. (confidence: 0.792)
+2025-10-02 20:02:00 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_a960e4f2-c939-43b7-ac97-909a49dba3a0_jpg.rf.a5b1b45c938dbc4b999f81b4f6df2970.jpg
+2025-10-02 20:02:00 - digital_ocr - INFO - [logger.py:63] - Processing: test\ad2f2f64-eeeb-46ec-a953-367e1b08b080_jpg.rf.8b37b5b089236d73d74d259175f6e1f8.jpg
+2025-10-02 20:02:00 - digital_ocr - INFO - [logger.py:63] - Detected: 2:3808. (confidence: 0.850)
+2025-10-02 20:02:00 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_ad2f2f64-eeeb-46ec-a953-367e1b08b080_jpg.rf.8b37b5b089236d73d74d259175f6e1f8.jpg
+2025-10-02 20:02:00 - digital_ocr - INFO - [logger.py:63] - Processing: test\c67ef385-ca91-4fce-8f53-1cf751bdd831_jpg.rf.73ce3e112f82eaa07467ea461f114a34.jpg
+2025-10-02 20:02:00 - digital_ocr - INFO - [logger.py:63] - Detected: 25:203. (confidence: 0.776)
+2025-10-02 20:02:00 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_c67ef385-ca91-4fce-8f53-1cf751bdd831_jpg.rf.73ce3e112f82eaa07467ea461f114a34.jpg
+2025-10-02 20:02:00 - digital_ocr - INFO - [logger.py:63] - Processing: test\cff4b480-8702-4de9-8ff0-f7405f8c436e_jpg.rf.e23b6de099f2fe45dc397381228029bf.jpg
+2025-10-02 20:02:00 - digital_ocr - INFO - [logger.py:63] - Detected: 247904. (confidence: 0.834)
+2025-10-02 20:02:00 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_cff4b480-8702-4de9-8ff0-f7405f8c436e_jpg.rf.e23b6de099f2fe45dc397381228029bf.jpg
+2025-10-02 20:02:00 - digital_ocr - INFO - [logger.py:63] - Processing: test\e25a54d5-1aed-4c57-af03-bcd2d621f2e9_jpg.rf.b0c050e8e76322691d7e3b879e0518ab.jpg
+2025-10-02 20:02:00 - digital_ocr - INFO - [logger.py:63] - Detected: 115.255. (confidence: 0.818)
+2025-10-02 20:02:00 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_e25a54d5-1aed-4c57-af03-bcd2d621f2e9_jpg.rf.b0c050e8e76322691d7e3b879e0518ab.jpg
+2025-10-02 20:02:00 - digital_ocr - INFO - [logger.py:63] - Processing: test\e9393a22-5b58-4348-9fdd-56e0ae138c31_jpg.rf.d83f177d057b668a9a9b384402983039.jpg
+2025-10-02 20:02:00 - digital_ocr - INFO - [logger.py:63] - Detected: 4:4:04 (confidence: 0.840)
+2025-10-02 20:02:00 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_e9393a22-5b58-4348-9fdd-56e0ae138c31_jpg.rf.d83f177d057b668a9a9b384402983039.jpg
+2025-10-02 20:02:00 - digital_ocr - INFO - [logger.py:63] - Processing: test\f0c95c5f-240f-4727-8fda-0cae388940c3_jpg.rf.7d9fd2c39c1dd5930b32f2d6d3cd9690.jpg
+2025-10-02 20:02:00 - digital_ocr - INFO - [logger.py:63] - Detected: 268402. (confidence: 0.786)
+2025-10-02 20:02:00 - digital_ocr - INFO - [logger.py:63] - Saved visualization: D:\OCR\results\vis_f0c95c5f-240f-4727-8fda-0cae388940c3_jpg.rf.7d9fd2c39c1dd5930b32f2d6d3cd9690.jpg
+2025-10-02 20:02:00 - digital_ocr - INFO - [logger.py:63] - Processing: test\デジタル時計-1_OCR用.jpg
+2025-10-02 20:02:01 - digital_ocr - WARNING - [logger.py:66] - No digits detected
+2025-10-02 20:02:01 - digital_ocr - INFO - [logger.py:63] - Results saved to: D:\OCR\results\my_results.jsonl
